@@ -6,6 +6,13 @@ module.exports = {
   target: "server",
   telemetry: false,
   build: {
+    babel: {
+      plugins: [
+        ['@babel/plugin-proposal-private-methods', { loose: true }],
+        ['@babel/plugin-proposal-private-property-in-object', { loose: true }]
+      ],
+      
+    },
     cssSourceMap: false,
     parallel: false,
     cache: true,
@@ -15,7 +22,7 @@ module.exports = {
     filenames: {
       chunk: ({ isDev }) => isDev ? '[name].js' : '[id].[contenthash].js'
     },
-    transpile: ['feathers-vuex'],
+    // transpile: ['feathers-vuex'],
   },
   env: {
     disableAuth: process.env.DISABLE_AUTH || false,
@@ -93,15 +100,7 @@ module.exports = {
    /*
    ** Build configuration
    */
-   build: {
-    babel: {
-      presets(env, [ preset, options ]) {
-        return [
-          [ "@babel/preset-env", options ]
-        ]
-      }
-    },
-  },
+
   css: ["normalize.css/normalize.css"],
   modules: ["bootstrap-vue/nuxt"],
   bootstrapVue: {
