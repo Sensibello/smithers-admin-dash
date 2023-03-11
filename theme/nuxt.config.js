@@ -90,12 +90,25 @@ module.exports = {
       },
     ]
   },
+   /*
+   ** Build configuration
+   */
+   build: {
+    babel: {
+      presets(env, [ preset, options ]) {
+        return [
+          [ "@babel/preset-env", options ]
+        ]
+      }
+    },
+  },
   css: ["normalize.css/normalize.css"],
   modules: ["bootstrap-vue/nuxt"],
   bootstrapVue: {
     bootstrapCSS: false, // or `css`
     bootstrapVueCSS: false // or `bvCSS`
   },
+  
   plugins: [
     { src: "~/plugins/vue-echarts.js", ssr: false },
     { src: "~/plugins/vue-editor.js", ssr: false },
