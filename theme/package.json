@@ -29,6 +29,7 @@
     "start": "cross-env NODE_ENV=production node --max_old_space_size=8192 src/"
   },
   "dependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.0",
     "@feathersjs/authentication": "^4.5.3",
     "@feathersjs/authentication-client": "^4.5.3",
     "@feathersjs/authentication-jwt": "^2.0.10",
