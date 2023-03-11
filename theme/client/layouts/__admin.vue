@@ -19,7 +19,7 @@
                 :menu="!layout.topMenuHide ? menu  :  []  " />
     		</header>
 
-    <nav v-if="!layout.menuHide" class="nav-sidebar"  v-click-outside="hideSideOnOutside">
+    <!-- <nav v-if="!layout.menuHide" class="nav-sidebar"  v-click-outside="hideSideOnOutside">
  
         <b-collapse v-model="isSideCollapsed"  id="nav-sidebar">
             <client-only> 
@@ -39,7 +39,7 @@
                 />
             </client-only>
         </b-collapse>
-    </nav>
+    </nav> -->
     <main id="main-content">
       <b-container :fluid="!layout.contentBoxed" class="container-content h-100" :class="{'boxed':layout.contextBarHide && layout.contentBoxed && isShowFixedContext}">
         <page-wrapper :windowWidth="windowWidth" 

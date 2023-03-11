@@ -104,7 +104,7 @@
                         <dropdown-tab> </dropdown-tab>
                     </b-nav-item-dropdown>
 
-                    <b-nav-item-dropdown right
+                    <!-- <b-nav-item-dropdown right
                         class="l-divider ml-3"
                         :class="{'mixed': !layout.headerIconLighten}"
                         no-caret>
@@ -137,7 +137,7 @@
                         <b-dropdown-divider />
                         <b-dropdown-item href="#">
                             <i class="la la-sign-out text-secondary" />Logout</b-dropdown-item>
-                    </b-nav-item-dropdown>
+                    </b-nav-item-dropdown> -->
 
                 </b-navbar-nav>
 
