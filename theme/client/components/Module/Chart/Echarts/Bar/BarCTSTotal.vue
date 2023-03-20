@@ -80,23 +80,47 @@ export default {
   },
 
   computed: {
-    // getAllValues() {
-    //   return [
-    //     ...this.ctsData.map((i) => i["Quarter to Date Actual"].value),
-    //     ...this.ctsData.map((i) => i["Quarterly Budget"].value),
-    //   ];
-    // },
-    // setMinimum() {
-    //   return 0;
-    // },
-    // setMaximum() {
-    //   return Math.max(...this.getAllValues) * 1.05;
-    // },
+    ohioNew() {
+      // this.ctsData
+      return this.ctsData.map((mon) => mon.new);
+    },
+    ohioLost() {
+      return this.ctsData.map((mon) => mon.lost);
+    },
+    ohioExisting() {
+      return this.ctsData.map((mon) => mon.existing);
+    },
+    ohioNet() {
+      // sum ohioNew & ohioExisting
+      const existingValues = this.ohioExisting.map(
+        (i) => i["Quarter to Date Actual"].value
+      );
+      let newValues = this.ohioNew.map(
+        (i) => i["Quarter to Date Actual"].value
+      );
+      let sum = [];
+      for (let i = 0; i < existingValues.length; i++) {
+        sum.push(existingValues[i] + newValues[i]);
+      }
+      return sum;
+    },
+
+    ohioTotal() {
+      // subtract ohioLost from ohioNet
+      let sum = [];
+      let lostValues = this.ohioLost.map(
+        (i) => i["Quarter to Date Actual"].value
+      );
+      for (let i = 0; i < this.ohioNet.length; i++) {
+        sum.push(this.ohioNet[i] - lostValues[i]);
+      }
+      return sum;
+    },
+
     options() {
       const variablesColors = themeColors(this.$store.state.theme.skin);
-      const barMaxWidth = "30%";
+      const barMaxWidth = "25%";
       const barBorderRadius = [3, 3, 0, 0];
-
       let option = {
         // color: colors,
         // orient: "vertical",
@@ -127,7 +151,7 @@ export default {
         },
         legend: {
           show: true,
-          data: ["Quarter to Date Actual", "Quarterly Budget"],
+          data: ["Wins", "Losses", "Totals"],
         },
         xAxis: [
           {
@@ -147,7 +171,7 @@ export default {
               // formatter: '${value}',
               fontSize: 14,
               fontWeight: 500,
-              color: variablesColors.variantsObj.secondary["mixed-1"],
+              color: "#202020",
             },
 
             data: ["Jan", "Feb", "Mar"],
@@ -156,29 +180,8 @@ export default {
         yAxis: [
           {
             type: "value",
-            name: "",
-
-            // min: this.setMinimum,
-            // max: this.setMaximum,
-            boundaryGap: [0, 0.01],
-            show: true,
-            showGrid: true,
-            splitLine: {
-              show: false,
-            },
-            position: "left",
-
-            axisLabel: {
-              formatter: "{value} $",
-              fontSize: 10,
-            },
-          },
-          {
-            type: "value",
             name: "Lead",
-            // min: this.setMinimum,
-            // max: this.setMaximum,
-            // boundaryGap: [0, 0.01],
+            boundaryGap: [0, 0],
             show: false,
             position: "right",
             // offset: 80,
@@ -189,9 +192,8 @@ export default {
           {
             type: "value",
             name: "Unit",
-            // min: this.setMinimum,
-            // max: this.setMaximum,
-            // boundaryGap: [0, 0.01],
+            boundaryGap: [0, 0],
+
             position: "left",
             splitLine: {
               show: true,
@@ -209,53 +211,108 @@ export default {
               // formatter: '${value}',
               fontSize: 10,
               fontWeight: 500,
-              color: variablesColors.variantsObj.secondary["mixed-1"],
+              color: "#202020",
             },
           },
         ],
         series: [
           {
-            name: "Quarter to Date Actual",
+            name: "Ohio existing",
             type: "bar",
-            // for each month quarter to date  value
-            data: this.ctsData.map((i) => i["Quarter to Date Actual"].value),
             barMaxWidth: barMaxWidth,
+            yAxisIndex: 1,
+            // data: [2, 3, 4],
+            data: this.ohioExisting.map(
+              (i) => i["Quarter to Date Actual"].value
+            ),
             itemStyle: {
-              barBorderRadius: barBorderRadius,
-              color: variablesColors.variantsObj.primary["base"],
               normal: {
+                color: "#aa00aa",
                 label: {
                   show: true,
-                  position: "insideTop",
+                },
+              },
+            },
+            stack: "sum",
+          },
+          {
+            name: "Ohio new",
+            type: "bar",
+            // for each month quarter to date  value ohioNew
+            // data: [2, 2, 3],
+            data: this.ohioNew.map((i) => i["Quarter to Date Actual"].value),
+            barMaxWidth: barMaxWidth,
+            itemStyle: {
+              normal: {
+                color: "#0000aa",
+                label: {
+                  show: true,
                 },
               },
             },
 
             barGap: "10%",
             zlevel: 1,
-            // to stack the values
-            // stack: "sum",
+            stack: "sum",
+          },
+
+          {
+            // this is an invisible value to show the losses in line with the top of the sum
+            name: "losses",
+            type: "bar",
+            barMaxWidth: "50%",
+            yAxisIndex: 1,
+            // calculate value by subtracting losses from sum
+            // data: [3, 4, 5],
+            data: this.ohioTotal,
+            itemStyle: {
+              normal: {
+                color: "#00000000",
+              },
+            },
+            stack: "losses",
           },
           {
-            name: "Quarterly Budget",
+            name: "losses",
+            type: "bar",
+            barMaxWidth: barMaxWidth,
+            yAxisIndex: 1,
+            // value is losses value
+            // data: [1, 1, 1],
+            data: this.ohioLost.map((i) => i["Quarter to Date Actual"].value),
+            itemStyle: {
+              barBorderRadius: barBorderRadius,
+              normal: {
+                color: "#ff5544",
+                label: {
+                  show: true,
+                  position: "bottom",
+                  color: "#202020",
+                  // formatter: "- {value}",
+                },
+                // type: value,
+              },
+            },
+            stack: "losses",
+          },
+
+          {
+            name: "totals",
             type: "bar",
             barMaxWidth: barMaxWidth,
             yAxisIndex: 1,
             // for each month quarterly budget value
-            data: this.ctsData.map((i) => i["Quarterly Budget"].value),
+            data: this.ohioTotal,
             itemStyle: {
               barBorderRadius: barBorderRadius,
-              color: variablesColors.variantsObj.theme1["mixed-1"],
               normal: {
+                color: "#00aa44",
                 label: {
                   show: true,
-                  position: "insideTop",
                 },
               },
             },
-            // to stack the values
             // stack: "sum",
-            // barCategoryGap: "50%",
           },
         ],
       };
