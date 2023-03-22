@@ -86,7 +86,7 @@
           :ctsData="ohioNew"
         />
       </b-col>
-      <b-col xs="12" lg="4" xl="4">
+      <!-- <b-col xs="12" lg="4" xl="4">
         <CardTitle title="Losses" subTitle="lost customers"></CardTitle>
         <barCTS
           mainColorName="primary"
@@ -98,7 +98,7 @@
           :lineSmooth="true"
           :ctsData="ohioLost"
         />
-      </b-col>
+      </b-col> -->
       <b-col xs="12" lg="4" xl="4">
         <CardTitle title="Existing" subTitle=" "></CardTitle>
         <barCTS

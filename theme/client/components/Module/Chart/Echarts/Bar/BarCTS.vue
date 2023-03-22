@@ -115,13 +115,6 @@ export default {
           },
         },
 
-        grid: {
-          bottom: "20px",
-          right: "20px",
-          left: "40px",
-          top: "40px",
-          show: true,
-        },
         toolbox: {
           show: false,
         },
@@ -135,7 +128,10 @@ export default {
             type: "category",
 
             axisLine: {
-              show: true,
+              showGrid: false,
+              lineStyle: {
+                color: "#808080",
+              },
             },
             splitLine: {
               show: false,
@@ -147,7 +143,7 @@ export default {
               // formatter: '${value}',
               fontSize: 14,
               fontWeight: 500,
-              color: variablesColors.variantsObj.secondary["mixed-1"],
+              color: "#202020",
             },
 
             data: ["Jan", "Feb", "Mar"],
@@ -156,32 +152,34 @@ export default {
         yAxis: [
           {
             type: "value",
-            name: "",
-
-            // min: this.setMinimum,
-            // max: this.setMaximum,
-            boundaryGap: [0, 0.01],
             show: true,
-            showGrid: true,
             splitLine: {
-              show: false,
+              show: true,
+              lineStyle: {
+                color: "#808080",
+              },
+            },
+            axisLine: {
+              showGrid: false,
+              lineStyle: {
+                color: "#808080",
+              },
             },
             position: "left",
 
             axisLabel: {
-              formatter: "{value} $",
+              formatter: "${value}",
               fontSize: 10,
+              fontWeight: 500,
+              color: "#202020",
+              offset: 80,
             },
           },
           {
             type: "value",
             name: "Lead",
-            // min: this.setMinimum,
-            // max: this.setMaximum,
-            // boundaryGap: [0, 0.01],
             show: false,
             position: "right",
-            // offset: 80,
             axisLabel: {
               formatter: "{value} Win Ratio",
             },
@@ -189,27 +187,23 @@ export default {
           {
             type: "value",
             name: "Unit",
-            // min: this.setMinimum,
-            // max: this.setMaximum,
-            // boundaryGap: [0, 0.01],
             position: "left",
             splitLine: {
               show: true,
               lineStyle: {
-                color: variablesColors.variantsObj.theme1.mixed,
+                color: "#808080",
               },
             },
             axisLine: {
               showGrid: false,
               lineStyle: {
-                color: variablesColors.variantsObj.secondary["mixed"],
+                color: "#808080",
               },
             },
             axisLabel: {
-              // formatter: '${value}',
               fontSize: 10,
               fontWeight: 500,
-              color: variablesColors.variantsObj.secondary["mixed-1"],
+              color: "#202020",
             },
           },
         ],
@@ -222,19 +216,18 @@ export default {
             barMaxWidth: barMaxWidth,
             itemStyle: {
               barBorderRadius: barBorderRadius,
-              color: variablesColors.variantsObj.primary["base"],
               normal: {
+                color: "#0000aa",
+                backgroundColor: "#ff0000",
                 label: {
                   show: true,
-                  position: "insideTop",
+                  position: "top",
                 },
               },
             },
 
             barGap: "10%",
             zlevel: 1,
-            // to stack the values
-            // stack: "sum",
           },
           {
             name: "Quarterly Budget",
@@ -245,17 +238,14 @@ export default {
             data: this.ctsData.map((i) => i["Quarterly Budget"].value),
             itemStyle: {
               barBorderRadius: barBorderRadius,
-              color: variablesColors.variantsObj.theme1["mixed-1"],
               normal: {
+                color: "#00aa44",
                 label: {
                   show: true,
-                  position: "insideTop",
+                  position: "top",
                 },
               },
             },
-            // to stack the values
-            // stack: "sum",
-            // barCategoryGap: "50%",
           },
         ],
       };

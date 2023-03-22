@@ -2,6 +2,7 @@
   <wrapper-echarts
     ref="chartEl"
     style="min-height: 240px"
+    height="400px"
     :options="options"
     @finished="handleRendered"
   >
@@ -138,14 +139,6 @@ export default {
             },
           },
         },
-
-        grid: {
-          bottom: "20px",
-          right: "20px",
-          left: "40px",
-          top: "40px",
-          show: true,
-        },
         toolbox: {
           show: false,
         },
@@ -157,9 +150,11 @@ export default {
           {
             show: true,
             type: "category",
-
             axisLine: {
-              show: true,
+              showGrid: false,
+              lineStyle: {
+                color: "#808080",
+              },
             },
             splitLine: {
               show: false,
@@ -191,24 +186,22 @@ export default {
           },
           {
             type: "value",
-            name: "Unit",
-            boundaryGap: [0, 0],
-
+            // name: "Unit",
             position: "left",
             splitLine: {
               show: true,
               lineStyle: {
-                color: variablesColors.variantsObj.theme1.mixed,
+                color: "#808080",
               },
             },
             axisLine: {
               showGrid: false,
               lineStyle: {
-                color: variablesColors.variantsObj.secondary["mixed"],
+                color: "#808080",
               },
             },
             axisLabel: {
-              // formatter: '${value}',
+              formatter: "${value}",
               fontSize: 10,
               fontWeight: 500,
               color: "#202020",
@@ -244,9 +237,12 @@ export default {
             barMaxWidth: barMaxWidth,
             itemStyle: {
               normal: {
+                barBorderWidth: 2,
+                barBorderColor: "#0000ff",
                 color: "#0000aa",
                 label: {
                   show: true,
+                  // fontSize: 16,
                 },
               },
             },
@@ -258,15 +254,16 @@ export default {
 
           {
             // this is an invisible value to show the losses in line with the top of the sum
-            name: "losses",
+            name: "losses adjustment",
             type: "bar",
             barMaxWidth: "50%",
             yAxisIndex: 1,
-            // calculate value by subtracting losses from sum
-            // data: [3, 4, 5],
             data: this.ohioTotal,
             itemStyle: {
               normal: {
+                label: {
+                  show: false,
+                },
                 color: "#00000000",
               },
             },
@@ -309,6 +306,7 @@ export default {
                 color: "#00aa44",
                 label: {
                   show: true,
+                  // fontSize: 16,
                 },
               },
             },
