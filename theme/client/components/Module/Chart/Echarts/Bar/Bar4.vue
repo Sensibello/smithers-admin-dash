@@ -1,106 +1,116 @@
-
 <template>
-<wrapper-echarts :options="options"> </wrapper-echarts>
+  <wrapper-echarts :options="options"> </wrapper-echarts>
 </template>
 <script>
-import WrapperEcharts from '@/components/Module/Chart/Echarts/WrapperEcharts'
-import defaultPropsMixin from '@@/client/util/chart/defaultPropsMixin'
+import WrapperEcharts from "@/components/Module/Chart/Echarts/WrapperEcharts";
+import defaultPropsMixin from "@@/client/util/chart/defaultPropsMixin";
 
 /*
 Example of component for rendering the bar chart of the echarts library
 */
 export default {
   components: {
-    WrapperEcharts
+    WrapperEcharts,
   },
   mixins: [defaultPropsMixin],
 
-  data () {
+  data() {
     let option = {
       title: {
         text: this.title,
-        subtext: this.subtitle
+        subtext: this.subtitle,
       },
       tooltip: {
-        trigger: 'axis',
+        trigger: "axis",
         axisPointer: {
           // 坐标轴指示器，坐标轴触发有效
-          type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
-
+          type: "shadow", // 默认为直线，可选为：'line' | 'shadow'
         },
         formatter: function (params) {
-          var tar = params[0]
-          return tar.name + '<br/>' + tar.seriesName + ' : ' + tar.value
-        }
+          var tar = params[0];
+          return tar.name + "<br/>" + tar.seriesName + " : " + tar.value;
+        },
       },
       toolbox: {
         show: false,
         feature: {
           mark: {
-            show: true
+            show: true,
           },
           dataView: {
             show: true,
-            readOnly: false
+            readOnly: false,
           },
           restore: {
-            show: true
+            show: true,
           },
           saveAsImage: {
-            show: true
-          }
-        }
-      },
-      xAxis: [{
-        type: 'category',
-        splitLine: {
-          show: false
-        },
-        data: ['T. Cost', 'Rent', 'U. Fee', 'Transp. Fee', 'F. Expenses', 'Daily. Exp.']
-      }],
-      yAxis: [{
-        type: 'value'
-      }],
-      series: [{
-        name: 'Assist',
-        type: 'bar',
-        stack: 'T. Amount',
-        itemStyle: {
-          normal: {
-            barBorderColor: 'rgba(0,0,0,0)',
-            color: 'rgba(0,0,0,0)'
+            show: true,
           },
-          emphasis: {
-            barBorderColor: 'rgba(0,0,0,0)',
-            color: 'rgba(0,0,0,0)'
-          }
         },
-        data: [0, 1700, 1400, 1200, 300, 0]
-      }, {
-        name: 'Expenses',
-        type: 'bar',
-        stack: 'T. Amount',
-        itemStyle: {
-          normal: {
-            label: {
-              show: true,
-              position: 'inside'
-            }
-          }
+      },
+      xAxis: [
+        {
+          type: "category",
+          splitLine: {
+            show: false,
+          },
+          data: [
+            "T. Cost",
+            "Rent",
+            "U. Fee",
+            "Transp. Fee",
+            "F. Expenses",
+            "Daily. Exp.",
+          ],
         },
-        data: [2900, 1200, 300, 200, 900, 300]
-      }]
-    }
+      ],
+      yAxis: [
+        {
+          type: "value",
+        },
+      ],
+      series: [
+        {
+          name: "Assist",
+          type: "bar",
+          stack: "T. Amount",
+          itemStyle: {
+            normal: {
+              barBorderColor: "rgba(0,0,0,0)",
+              color: "rgba(0,0,0,1)",
+            },
+            emphasis: {
+              barBorderColor: "rgba(0,0,0,0)",
+              color: "rgba(0,0,0,0)",
+            },
+          },
+          data: [0, 1700, 1400, 1200, 300, 0],
+        },
+        {
+          name: "Expenses",
+          type: "bar",
+          stack: "T. Amount",
+          itemStyle: {
+            normal: {
+              label: {
+                show: true,
+                position: "inside",
+              },
+            },
+          },
+          data: [2900, 1200, 300, 200, 900, 300],
+        },
+      ],
+    };
     return {
-      options: option
-    }
+      options: option,
+    };
   },
 
-  methods: {}
-}
-
+  methods: {},
+};
 </script>
-
 
 <style lang="scss" scoped>
 .echarts {
@@ -134,7 +144,4 @@ export default {
     border-bottom: 2px solid #fff;
   }
 }
-
 </style>
-
-

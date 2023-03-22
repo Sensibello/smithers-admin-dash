@@ -1,101 +1,116 @@
-
 <template>
-<wrapper-echarts :options="options"> </wrapper-echarts>
+  <wrapper-echarts :options="options"> </wrapper-echarts>
 </template>
 <script>
-import WrapperEcharts from '@/components/Module/Chart/Echarts/WrapperEcharts'
-import defaultPropsMixin from '@@/client/util/chart/defaultPropsMixin'
+import WrapperEcharts from "@/components/Module/Chart/Echarts/WrapperEcharts";
+import defaultPropsMixin from "@@/client/util/chart/defaultPropsMixin";
 
 /*
 Example of component for rendering pie chart of the echarts library
 */
 export default {
   components: {
-    WrapperEcharts
+    WrapperEcharts,
   },
   mixins: [defaultPropsMixin],
-
-  data () {
+  props: {
+    // ctsData: Object,
+    ctsData: {
+      type: Object,
+      default: { one: "test", two: "test2" },
+    },
+  },
+  data() {
     let option = {
       title: {
         text: this.title,
         subtext: this.subtitle,
-        x: 'center'
+        x: "center",
       },
 
       tooltip: {
-        trigger: 'item',
-        formatter: '{a} <br/>{b} : {c} ({d}%)'
+        trigger: "item",
+        formatter: "{a} <br/>{b} : {c} ({d}%)",
       },
       legend: {
-        orient: 'vertical',
-        x: 'left',
-        data: ['D. Inter.', 'E. Marketing', 'Adversing', 'Video Ad', 'S. Engine']
+        orient: "vertical",
+        x: "left",
+        data: Object.keys(this.ctsData),
       },
       toolbox: {
         show: false,
         feature: {
           mark: {
-            show: true
+            show: true,
           },
           dataView: {
             show: true,
-            readOnly: false
+            readOnly: false,
           },
           magicType: {
             show: true,
-            type: ['pie', 'funnel'],
+            type: ["pie", "funnel"],
             option: {
               funnel: {
-                x: '25%',
-                width: '50%',
-                funnelAlign: 'left',
-                max: 1548
-              }
-            }
+                x: "25%",
+                width: "50%",
+                funnelAlign: "left",
+                max: 1548,
+              },
+            },
           },
           restore: {
-            show: true
+            show: true,
           },
           saveAsImage: {
-            show: true
-          }
-        }
+            show: true,
+          },
+        },
       },
       calculable: true,
-      series: [{
-        name: 'Access Source',
-        type: 'pie',
-        radius: '55%',
-        center: ['50%', '60%'],
-        data: [{
-          value: 335,
-          name: 'D. Inter.'
-        }, {
-          value: 310,
-          name: 'E. Marketing'
-        }, {
-          value: 234,
-          name: 'Adversing'
-        }, {
-          value: 135,
-          name: 'Video Ad'
-        }, {
-          value: 1548,
-          name: 'S. Engine'
-        }]
-      }]
-    }
+      series: [
+        {
+          name: "Access Source",
+          type: "pie",
+          radius: "55%",
+          center: ["50%", "60%"],
+          data: [
+            {
+              value: 600,
+              name: "test",
+            },
+            {
+              value: 310,
+              name: "E. Marketing",
+            },
+            {
+              value: 234,
+              name: "Adversing",
+            },
+            {
+              value: 135,
+              name: "Video Ad",
+            },
+            {
+              value: 1548,
+              name: "S. Engine",
+            },
+          ],
+        },
+      ],
+    };
     return {
-      options: option
-    }
+      options: option,
+    };
   },
 
-  methods: {}
-}
-
+  computed: {
+    // legend() {
+    //   return ["test", "test2"];
+    // },
+  },
+};
 </script>
-
 
 <style lang="scss" scoped>
 .echarts {
@@ -129,7 +144,4 @@ export default {
     border-bottom: 2px solid #fff;
   }
 }
-
 </style>
-
-
