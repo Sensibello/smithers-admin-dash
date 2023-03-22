@@ -3,7 +3,7 @@
 <b-card no-body
     class="no-bg bg-transparent"
     :class="[bgClass, textClass]">
-    <b-card-header class="h5 default d-flex bg-theme1inv ig-rounded shadow"
+    <!-- <b-card-header class="h5 default d-flex bg-theme1inv ig-rounded shadow"
         :class="[borderClass]">
         <card-title title="Dashboad"
             subTitle="Convesion by Team">
@@ -45,7 +45,7 @@
 
         </card-title>
 
-    </b-card-header>
+    </b-card-header> -->
     <b-card-body>
         <bar21 :maxSerie="maxSerie"
             title=""

@@ -1,8 +1,8 @@
 
 <template>
 <div class="d-flex w-100">
-    <div class="mr-auto">
-        <h4 class="card-title text-theme1 ">{{title}}</h4>
+    <div class="mr-auto mt-5 pb-3">
+        <h4 class="card-title text-theme1">{{title}}</h4>
         <h6 class="card-subtitle text-theme1 mixed-1 mb-0 op-5">{{subTitle}}</h6>
     </div>
     <div class="right-bar my-auto text-theme1">

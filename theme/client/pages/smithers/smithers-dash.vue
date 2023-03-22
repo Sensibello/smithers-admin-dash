@@ -1,9 +1,9 @@
 <template>
   <div class="dashboard">
-    <!-- <b-row class="pt-0">
+    <b-row class="pt-0">
       <b-col md="12" lg="12">
-        <h2>Heatmap Data</h2>
-        <last-sale> </last-sale>
+        <h2 class="mt-2 pb-5 text-center">Heatmap Data</h2>
+        <win-table> </win-table>
       </b-col>
     </b-row>
 
@@ -15,25 +15,18 @@
       <b-col md="12" lg="12">
         <big-bar4> </big-bar4>
       </b-col>
-    </b-row> -->
+    </b-row>
+
+     <b-row class="pt-0">
+      <b-col md="12" lg="12">
+        <capacity-revenue-table> </capacity-revenue-table>
+      </b-col>
+    </b-row>
 
     <!-- <multiple-bottom-bar> </multiple-bottom-bar> -->
 
-    <b-row class="pt-0">
-      <!-- <b-col md="12" lg="12">
-        <big-bar2
-          :maxSerie="30"
-          :colorList="[variables.primary]"
-          bgClass="bg-theme1inv"
-          subtitleClass="text-muted"
-          titleClass="text-secondary"
-          borderClass
-          textClass="text-dark"
-        >
-        </big-bar2>
-      </b-col> -->
-    </b-row>
-    <b-row class="pt-0">
+  
+    <b-row class="m-auto d-block pt-0">
       <!-- <b-col xs="12" lg="4" xl="4">
         <card-bar
           mainColorName="primary"
@@ -61,7 +54,7 @@
           :randomSeed="3"
         />
       </b-col> -->
-      <b-col xs="12" lg="4" xl="4">
+      <b-col md="12" lg="12">
         <CardTitle
           title="A to B"
           subTitle="Quarter to Date Actual Totals"
@@ -77,7 +70,7 @@
           :ctsData="ohio"
         />
       </b-col>
-      <b-col xs="12" lg="4" xl="4">
+      <b-col md="12" lg="12">
         <CardTitle title="Wins" subTitle="new customers"></CardTitle>
         <barCTS
           mainColorName="primary"
@@ -103,7 +96,7 @@
           :ctsData="ohioLost"
         />
       </b-col> -->
-      <b-col xs="12" lg="4" xl="4">
+      <b-col md="12" lg="12">
         <CardTitle title="Existing" subTitle=" "></CardTitle>
         <barCTS
           mainColorName="primary"
@@ -136,10 +129,11 @@
 <script>
 import themeColors from "@@/client/util/theme/themeColors.js";
 // import LastSale from '@/components/Module/Sale/Widget/LastSale'
-// import LastSale from "@/components/Module/Heatmap/LastSale";
+import WinTable from "@/components/Module/Heatmap/WinTable";
+import CapacityRevenueTable from "@/components/Module/Heatmap/CapacityRevenueTable";
 import ActiveVisitors from "@/components/Module/Chat/Widget/ActiveVisitors";
 // import BigBar2 from "@/components/Module/Chart/Echarts/Bar/Widget/BigBar2";
-// import BigBar4 from "@/components/Module/Chart/Echarts/Bar/Widget/BigBar4";
+import BigBar4 from "@/components/Module/Chart/Echarts/Bar/Widget/BigBar4";
 import CardBar from "@/components/Module/Chart/Echarts/Bar/Widget/CardBar";
 import MultipleBottomBar from "@/components/Module/Chart/Echarts/Bar/Widget/MultipleBottomBar";
 import RadarCard from "@/components/Module/Chart/Apex/Radar/Widget/RadarCard";
@@ -154,8 +148,9 @@ import CardTitle from "@/components/Base/Card/CardTitle";
 export default {
   layout: "admin",
   components: {
-    // LastSale,
+    WinTable,
     ActiveVisitors,
+    CapacityRevenueTable,
     RadarCard,
     PageFooter,
     MultipleBottomBar,
@@ -163,7 +158,7 @@ export default {
     CardBar,
     FourCharts3,
     // BigBar2,
-    // BigBar4,
+     BigBar4,
     BarCTS,
     BarCTSTotal,
     // Pie,
