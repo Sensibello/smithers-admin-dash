@@ -41,7 +41,7 @@
         </b-collapse>
     </nav> -->
     <main id="main-content">
-      <b-container :fluid="!layout.contentBoxed" class="container-content h-100" :class="{'boxed':layout.contextBarHide && layout.contentBoxed && isShowFixedContext}">
+      <b-container :fluid="!layout.contentBoxed" class=" h-100" :class="{'boxed':layout.contextBarHide && layout.contentBoxed && isShowFixedContext}">
         <page-wrapper :windowWidth="windowWidth" 
                       :urlPrefix="urlPrefix"
                       :layout="layout"
@@ -52,7 +52,7 @@
       </b-container>
     </main>
 
-    <side-icons />
+    <!-- <side-icons /> -->
     
   </div>
 </template>
