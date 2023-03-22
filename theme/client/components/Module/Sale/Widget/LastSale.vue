@@ -3,8 +3,8 @@
 <b-card no-body
     class="mb-0">
     <b-card-header>
-        <card-title title="Newest Sales"
-            subTitle="Lastest Orders"> </card-title>
+        <card-title title="CTS"
+            subTitle="By Locations"> </card-title>
     </b-card-header>
     <b-card-body>
         <div class="card-table  table-responsive mb-0">
@@ -91,34 +91,43 @@ export default {
 
   data () {
     return {
-      sales: [],
+      sales: [
+        {
+          name: "Test",
+          jobTitle: "Job title",
+          email: "email",
+          textState: "state",
+          total:"total",
+        },
+
+      ],
       currentIdx: 0,
       checked: true
     }
   },
 
-  created () {
-    faker.seed(6)
-    const arrVariants = ['primary', 'primary', 'success', 'danger', 'danger']
-    const arrTexts = ['Finished', 'Finished', 'Paid', 'Canceled', 'Canceled']
+  // created () {
+  //   faker.seed(6)
+  //   const arrVariants = ['primary', 'primary', 'success', 'danger', 'danger']
+  //   const arrTexts = ['Finished', 'Finished', 'Paid', 'Canceled', 'Canceled']
 
-    for (let i of [0, 1, 2, 3, 4]) {
-      const firstName = faker.name.firstName()
-      this.sales.push({
-        id: i,
-        name: firstName + ' ' + faker.name.lastName(),
-        email: firstName.toLowerCase() + '@company.com',
-        jobTitle: faker.commerce.department(),
-        created: faker.date.recent(),
-        total: faker.random.number({
-          min: 60,
-          max: 400
-        }),
-        variantState: arrVariants[i],
-        textState: arrTexts[i]
-      })
-    }
-  }
+  //   for (let i of [0, 1, 2, 3, 4]) {
+  //     const firstName = faker.name.firstName()
+  //     this.sales.push({
+  //       id: i,
+  //       name: firstName + ' ' + faker.name.lastName(),
+  //       email: firstName.toLowerCase() + '@company.com',
+  //       jobTitle: faker.commerce.department(),
+  //       created: faker.date.recent(),
+  //       total: faker.random.number({
+  //         min: 60,
+  //         max: 400
+  //       }),
+  //       variantState: arrVariants[i],
+  //       textState: arrTexts[i]
+  //     })
+  //   }
+  // }
 
 }
 

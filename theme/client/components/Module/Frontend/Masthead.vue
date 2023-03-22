@@ -6,13 +6,13 @@
     <div class="container h-100">
         <div class="row h-100 align-items-center justify-content-center text-left pb-5">
             <div class="col-lg-8 align-self-end text-center">
-                <h2>IGNITY ADMIN - VUE UI KIT </h2>
+                <h2>DASHBOARD </h2>
                 <animated-word-change v-if="false"
                     :textRotate="['UI KIT', 'ADMIN', 'SERVER']"
                     class="animated-container text-uppercase text-white font-weight-bold">
                     <span class="opacity-10">IGNITY THEME + </span></animated-word-change>
                 <hr class="divider my-4">
-                </hr>
+             
             </div>
             <div class="col-lg-8 align-self-baseline text-center">
                 <p class="text-theme1 mixed-1 font-weight-bold mb-5">

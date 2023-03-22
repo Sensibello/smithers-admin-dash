@@ -7,6 +7,10 @@
       </b-col>
     </b-row>
 
+
+    <four-charts3> </four-charts3>
+
+    
     <b-row class="pt-0">
       <b-col md="12" lg="12">
         <big-bar4> </big-bar4>

@@ -18,8 +18,8 @@
                                 :class="item.variant">
                                 <i :class="item.icon" /></div>
                             <h3 class="font-weight-medium">
-                                <span>{{item.total}}m</span></h3>
-                            <small class="text-gray d-block mt-2">{{item.title}}</small> <small class="font-weight-medium text-success"><i class="mdi mdi-menu-up" /><span class="animated-count">12.01</span>%</small>
+                                <span>{{item.total}}</span></h3>
+                            <small class="text-gray d-block mt-2">{{item.title}}</small> <small class="font-weight-medium text-success"><i class="mdi mdi-menu-up" /><span class="animated-count">{{item.goal}}</span></small>
                         </div>
                     </div>
                 </div>
@@ -47,36 +47,61 @@ export default {
 
   data () {
     return {
-      items: []
+      items: [
+        {
+          icon: "la la-award",
+          total: "$27,748,000",
+          title: "Region Total Wins",
+          goal: "$16,660,571 goal",
+        },
+         {
+          icon: "la la-bullseye",
+          total: "100%",
+          title: "Region Hit Rate",
+          goal: "83.3% goal",
+        },
+         {
+          icon: "la la-list-ul",
+          total: "$74,203,018",
+          title: "Region Total Backlog",
+          goal: "$6,010,000 goal",
+        },
+         {
+          icon: "la la-arrows-h",
+          total: "$31,037,000",
+          title: "Region Total AB Funnel",
+          goal: "$5,781,000 goal",
+        },
+      ]
     }
   },
   methods: {
 
   },
 
-  created () {
-    const variants = ['bg-primary', 'bg-info', 'bg-warning', 'bg-success']
-    const icons = ['shopping-cart', 'tachometer', 'certificate', 'diamond'] // Populate mock data
+  // created () {
+  //   const variants = ['bg-primary', 'bg-info', 'bg-warning', 'bg-success']
+  //   const icons = ['award', 'tachometer', 'certificate', 'diamond'] // Populate mock data
 
-    faker.seed(1)
-    const kpis = ['Total Followers', 'Total Likes', 'Total Contacts', 'Total Leads']
+  //   faker.seed(1)
+  //   const kpis = ['Region Total AB Funnel', 'Region Totale Backlog', 'Region Total Hit Rate', 'Region Total Wins']
 
-    for (let i of [0, 1, 2, 3]) {
-      this.items.push({
-        title: kpis.pop(),
-        total: faker.random.number({
-          min: 10,
-          max: 90
-        }) + '.' + faker.random.number({
-          min: 0,
-          max: 9
-        }),
-        icon: 'la la-' + icons.shift(),
-        variant: variants[i]
+  //   for (let i of [0, 1, 2, 3]) {
+  //     this.items.push({
+  //       title: kpis.pop(),
+  //       total: faker.random.number({
+  //         min: 10,
+  //         max: 90
+  //       }) + '.' + faker.random.number({
+  //         min: 0,
+  //         max: 9
+  //       }),
+  //       icon: 'la la-' + icons.shift(),
+  //       variant: variants[i]
 
-      })
-    }
-  }
+  //     })
+  //   }
+  // }
 
 }
 
