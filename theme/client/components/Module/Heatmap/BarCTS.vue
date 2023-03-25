@@ -2,7 +2,6 @@
   <wrapper-echarts
     ref="chartEl"
     style="min-height: 240px"
-    height="400px"
     :options="options"
     @finished="handleRendered"
   >
@@ -25,6 +24,11 @@ export default {
     ctsData: {
       type: Array,
       default: [2, 4, 6],
+    },
+    months: Array,
+    value: {
+      type: String,
+      default: "value",
     },
   },
   data() {
@@ -81,47 +85,11 @@ export default {
   },
 
   computed: {
-    ohioNew() {
-      // this.ctsData
-      return this.ctsData.map((mon) => mon.new);
-    },
-    ohioLost() {
-      return this.ctsData.map((mon) => mon.lost);
-    },
-    ohioExisting() {
-      return this.ctsData.map((mon) => mon.existing);
-    },
-    ohioNet() {
-      // sum ohioNew & ohioExisting
-      const existingValues = this.ohioExisting.map(
-        (i) => i["Quarter to Date Actual"].value
-      );
-      let newValues = this.ohioNew.map(
-        (i) => i["Quarter to Date Actual"].value
-      );
-      let sum = [];
-      for (let i = 0; i < existingValues.length; i++) {
-        sum.push(existingValues[i] + newValues[i]);
-      }
-      return sum;
-    },
-
-    ohioTotal() {
-      // subtract ohioLost from ohioNet
-      let sum = [];
-      let lostValues = this.ohioLost.map(
-        (i) => i["Quarter to Date Actual"].value
-      );
-      for (let i = 0; i < this.ohioNet.length; i++) {
-        sum.push(this.ohioNet[i] - lostValues[i]);
-      }
-      return sum;
-    },
-
     options() {
       const variablesColors = themeColors(this.$store.state.theme.skin);
-      const barMaxWidth = "25%";
+      const barMaxWidth = "30%";
       const barBorderRadius = [3, 3, 0, 0];
+
       let option = {
         // color: colors,
         // orient: "vertical",
@@ -133,23 +101,25 @@ export default {
           axisPointer: {
             type: "shadow",
             shadowStyle: {
-              color: variablesColors.variantsObj.secondary["mixed"],
-              shadowColor: variablesColors.variantsObj.secondary["mixed"],
-              opacity: 0.5,
+              color: "#808080",
+              // shadowColor: "#ffffff",
+              opacity: 0.25,
             },
           },
         },
+
         toolbox: {
           show: false,
         },
         legend: {
           show: true,
-          data: ["Wins", "Losses", "Totals"],
+          data: ["Quarter to Date Actual", "Quarterly Budget"],
         },
         xAxis: [
           {
             show: true,
             type: "category",
+
             axisLine: {
               showGrid: false,
               lineStyle: {
@@ -163,37 +133,18 @@ export default {
               alignWithLabel: true,
             },
             axisLabel: {
-              // formatter: '${value}',
               fontSize: 14,
               fontWeight: 500,
               color: "#202020",
             },
 
-            data: ["Jan", "Feb", "Mar"],
+            data: this.months,
           },
         ],
         yAxis: [
           {
             type: "value",
-            name: "Lead",
-            boundaryGap: [0, 0],
-            show: false,
-            position: "right",
-            // offset: 80,
-            axisLabel: {
-              formatter: "{value} Win Ratio",
-            },
-          },
-          {
-            type: "value",
-            // name: "Unit",
-            position: "left",
-            splitLine: {
-              show: true,
-              lineStyle: {
-                color: "#808080",
-              },
-            },
+            name: "",
             axisLine: {
               showGrid: false,
               lineStyle: {
@@ -201,116 +152,61 @@ export default {
               },
             },
             axisLabel: {
-              formatter: "${value}",
+              formatter: this.value === "value" ? "${value}" : "{value}",
               fontSize: 10,
               fontWeight: 500,
               color: "#202020",
             },
+            splitLine: {
+              show: true,
+              lineStyle: {
+                color: "#808080",
+              },
+            },
           },
+          { type: "value", show: false },
         ],
         series: [
           {
-            name: "Ohio existing",
+            name: "Quarter to Date Actual",
             type: "bar",
-            barMaxWidth: barMaxWidth,
-            yAxisIndex: 1,
-            // data: [2, 3, 4],
-            data: this.ohioExisting.map(
-              (i) => i["Quarter to Date Actual"].value
+            // for each month quarter to date  value
+            data: this.ctsData.map(
+              (i) => i["Quarter to Date Actual"][this.value]
             ),
-            itemStyle: {
-              normal: {
-                color: "#aa00aa",
-                label: {
-                  show: true,
-                },
-              },
-            },
-            stack: "sum",
-          },
-          {
-            name: "Ohio new",
-            type: "bar",
-            // for each month quarter to date  value ohioNew
-            // data: [2, 2, 3],
-            data: this.ohioNew.map((i) => i["Quarter to Date Actual"].value),
             barMaxWidth: barMaxWidth,
             itemStyle: {
+              barBorderRadius: barBorderRadius,
               normal: {
-                barBorderWidth: 2,
-                barBorderColor: "#0000ff",
                 color: "#0000aa",
+                backgroundColor: "#ff0000",
                 label: {
                   show: true,
-                  // fontSize: 16,
+                  position: "top",
                 },
               },
             },
 
             barGap: "10%",
             zlevel: 1,
-            stack: "sum",
-          },
-
-          {
-            // this is an invisible value to show the losses in line with the top of the sum
-            name: "losses adjustment",
-            type: "bar",
-            barMaxWidth: "50%",
-            yAxisIndex: 1,
-            data: this.ohioTotal,
-            itemStyle: {
-              normal: {
-                label: {
-                  show: false,
-                },
-                color: "#00000000",
-              },
-            },
-            stack: "losses",
           },
           {
-            name: "losses",
-            type: "bar",
-            barMaxWidth: barMaxWidth,
-            yAxisIndex: 1,
-            // value is losses value
-            // data: [1, 1, 1],
-            data: this.ohioLost.map((i) => i["Quarter to Date Actual"].value),
-            itemStyle: {
-              barBorderRadius: barBorderRadius,
-              normal: {
-                color: "#ff5544",
-                label: {
-                  show: true,
-                  position: "bottom",
-                  color: "#202020",
-                  // formatter: "- {value}",
-                },
-                // type: value,
-              },
-            },
-            stack: "losses",
-          },
-
-          {
-            name: "totals",
+            name: "Quarterly Budget",
             type: "bar",
             barMaxWidth: barMaxWidth,
             yAxisIndex: 1,
             // for each month quarterly budget value
-            data: this.ohioTotal,
+            data: this.ctsData.map((i) => i["Quarterly Budget"][this.value]),
             itemStyle: {
               barBorderRadius: barBorderRadius,
               normal: {
                 color: "#00aa44",
                 label: {
                   show: true,
-                  // fontSize: 16,
+                  position: "top",
                 },
               },
             },
-            // stack: "sum",
           },
         ],
       };
@@ -325,9 +221,7 @@ export default {
 .echarts {
   flex: 20 20 20em;
   padding: 10px;
-  // div {
-  border: 1px solid #000000;
-  // }
+  border: 1px solid #202020;
 }
 .list-group {
   flex: 1 1 10em;

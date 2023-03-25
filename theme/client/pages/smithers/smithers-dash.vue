@@ -7,17 +7,15 @@
       </b-col>
     </b-row>
 
-
     <four-charts3> </four-charts3>
 
-    
     <b-row class="pt-0">
       <b-col md="12" lg="12">
         <big-bar4> </big-bar4>
       </b-col>
     </b-row>
 
-     <b-row class="pt-0">
+    <b-row class="pt-0">
       <b-col md="12" lg="12">
         <capacity-revenue-table> </capacity-revenue-table>
       </b-col>
@@ -25,102 +23,118 @@
 
     <!-- <multiple-bottom-bar> </multiple-bottom-bar> -->
 
-  
     <b-row class="m-auto d-block pt-0">
-      <!-- <b-col xs="12" lg="4" xl="4">
-        <card-bar
-          mainColorName="primary"
-          style="min-height: 380px"
-          title="New Orders"
-          iconClass="la la-credit-card"
-          iconBgClass="info"
-          :randomSeed="2"
-          percentClass="text-danger"
-          type="line"
-          :seedRandom="[false, 40, false, 3, 3, 10]"
-        />
-      </b-col> -->
-      <!-- <b-col xs="12" lg="4" xl="4">
-        <card-bar
-          mainColorName="primary"
-          style="min-height: 380px"
-          title="New Sales"
-          iconClass="la la-gift"
-          iconBgClass="info"
-          type="bar"
-          percentClass="text-info"
-          xAxisType2="value"
-          yAxisType2="category"
-          :randomSeed="3"
-        />
-      </b-col> -->
       <b-col md="12" lg="12">
-        <CardTitle
+        <Card title="A to B" subTitle="Quarter to Date Actual Totals">
+          <barCTSTotal
+            mainColorName="primary"
+            title="New Bar Chart"
+            iconBgClass="info"
+            type="bar"
+            :lineSmooth="true"
+            :ctsData="ohio"
+            height="500px"
+            :months="monthRange"
+            :stateNew="stateNew"
+            :stateLost="stateLost"
+            :stateExisting="stateExisting"
+          />
+        </Card>
+      </b-col>
+      <b-col md="12" lg="12">
+        <Card
           title="A to B"
-          subTitle="Quarter to Date Actual Totals"
-        ></CardTitle>
-        <barCTSTotal
-          mainColorName="primary"
-          style="min-height: 380px"
-          title="New Bar Chart"
-          iconBgClass="info"
-          type="bar"
-          :randomSeed="1"
-          :lineSmooth="true"
-          :ctsData="ohio"
-        />
+          subTitle="Quarter to Date Actual Totals in Numbers"
+        >
+          <barCTSTotal
+            mainColorName="primary"
+            title="New Bar Chart"
+            iconBgClass="info"
+            type="bar"
+            :lineSmooth="true"
+            :ctsData="ohio"
+            height="500px"
+            :months="monthRange"
+            :stateNew="stateNew"
+            :stateLost="stateLost"
+            :stateExisting="stateExisting"
+            value="number"
+          />
+        </Card>
+      </b-col>
+      <!-- <FourCharts>
+        <Card title="Wins" subTitle="new customers">
+          <barCTS
+            mainColorName="primary"
+            style="min-height: 380px"
+            title="New Bar Chart"
+            iconBgClass="info"
+            type="bar"
+            :lineSmooth="true"
+            :ctsData="stateNew"
+            :months="monthRange"
+          />
+        </Card>
+      </FourCharts> -->
+      <b-col md="12" lg="12">
+        <Card title="Wins" subTitle="new customers in value">
+          <barCTS
+            mainColorName="primary"
+            style="min-height: 380px"
+            title="New Bar Chart"
+            iconBgClass="info"
+            type="bar"
+            :lineSmooth="true"
+            :ctsData="stateNew"
+            :months="monthRange"
+          />
+        </Card>
       </b-col>
       <b-col md="12" lg="12">
-        <CardTitle title="Wins" subTitle="new customers"></CardTitle>
-        <barCTS
-          mainColorName="primary"
-          style="min-height: 380px"
-          title="New Bar Chart"
-          iconBgClass="info"
-          type="bar"
-          :randomSeed="1"
-          :lineSmooth="true"
-          :ctsData="ohioNew"
-        />
+        <Card title="Wins" subTitle="new customers in numbers">
+          <barCTS
+            mainColorName="primary"
+            style="min-height: 380px"
+            title="New Bar Chart"
+            iconBgClass="info"
+            type="bar"
+            :lineSmooth="true"
+            :ctsData="stateNew"
+            :months="monthRange"
+            value="number"
+          />
+        </Card>
       </b-col>
-      <!-- <b-col xs="12" lg="4" xl="4">
-        <CardTitle title="Losses" subTitle="lost customers"></CardTitle>
-        <barCTS
-          mainColorName="primary"
-          style="min-height: 380px"
-          title="New Bar Chart"
-          iconBgClass="info"
-          type="bar"
-          :randomSeed="1"
-          :lineSmooth="true"
-          :ctsData="ohioLost"
-        />
-      </b-col> -->
+
       <b-col md="12" lg="12">
-        <CardTitle title="Existing" subTitle=" "></CardTitle>
-        <barCTS
-          mainColorName="primary"
-          style="min-height: 380px"
-          title="New Bar Chart"
-          iconBgClass="info"
-          type="bar"
-          :randomSeed="1"
-          :lineSmooth="true"
-          :ctsData="ohioExisting"
-        />
+        <Card title="Existing" subTitle="existing customers in value">
+          <barCTS
+            mainColorName="primary"
+            style="min-height: 380px"
+            title="New Bar Chart"
+            iconBgClass="info"
+            type="bar"
+            :lineSmooth="true"
+            :ctsData="stateExisting"
+            :months="monthRange"
+          />
+        </Card>
       </b-col>
-      <!-- <b-col xs="12" lg="4" xl="4">
-        <pie
-          mainColorName="primary"
-          style="min-height: 380px"
-          title="something else"
-          iconBgClass="info"
-          type="bar2"
-          :randomSeed="1"
-          :lineSmooth="true"
-          :ctsData="ohio"
-        />
-      </b-col> -->
+      <b-col md="12" lg="12">
+        <Card title="Existing" subTitle="existing customers in numbers">
+          <barCTS
+            mainColorName="primary"
+            style="min-height: 380px"
+            title="New Bar Chart"
+            iconBgClass="info"
+            type="bar"
+            :lineSmooth="true"
+            :ctsData="stateExisting"
+            :months="monthRange"
+            value="number"
+          />
+        </Card>
+      </b-col>
     </b-row>
     <!-- <four-charts3> </four-charts3> -->
     <!-- <page-footer> </page-footer> -->
@@ -141,8 +155,12 @@ import PageFooter from "@/components/Base/Page/PageFooter";
 import Stock from "@/components/Module/Product/Widget/Stock";
 import FourCharts3 from "@/components/Module/Dashboard/Widget/FourCharts3";
 // import Pie from "@/components/Module/Chart/Echarts/Pie/Pie1";
-import BarCTS from "@/components/Module/Chart/Echarts/Bar/BarCTS";
-import BarCTSTotal from "@/components/Module/Chart/Echarts/Bar/BarCTSTotal";
+
+// jd's modules
+import FourCharts from "@/components/Module/Heatmap/FourCharts";
+import BarCTS from "@/components/Module/Heatmap/BarCTS";
+import BarCTSTotal from "@/components/Module/Heatmap/BarCTSTotal";
+import Card from "@/components/Module/Heatmap/Card";
 import CardTitle from "@/components/Base/Card/CardTitle";
 
 export default {
@@ -158,10 +176,12 @@ export default {
     CardBar,
     FourCharts3,
     // BigBar2,
-     BigBar4,
+    BigBar4,
+    // Pie,
+    FourCharts,
     BarCTS,
     BarCTSTotal,
-    // Pie,
+    Card,
     CardTitle,
   },
   data() {
@@ -169,49 +189,55 @@ export default {
       ohio: [
         {
           month: "Jan",
-          new: {
-            "Quarter to Date Actual": { number: 2, value: 7000 },
-            "Quarterly Budget": { number: 2, value: 30720 },
-          },
-          lost: {
-            "Quarter to Date Actual": { number: 3, value: 3500 },
-            "Quarterly Budget": { number: 0, value: 0 },
-          },
-          existing: {
-            "Quarter to Date Actual": { number: 2, value: 25000 },
-            "Quarterly Budget": { number: 1, value: 64280 },
+          data: {
+            new: {
+              "Quarter to Date Actual": { number: 2, value: 7000 },
+              "Quarterly Budget": { number: 2, value: 30720 },
+            },
+            lost: {
+              "Quarter to Date Actual": { number: 3, value: 3500 },
+              "Quarterly Budget": { number: 0, value: 0 },
+            },
+            existing: {
+              "Quarter to Date Actual": { number: 2, value: 25000 },
+              "Quarterly Budget": { number: 1, value: 64280 },
+            },
           },
           totals: "more",
         },
         {
           month: "Feb",
-          new: {
-            "Quarter to Date Actual": { number: 2, value: 43000 },
-            "Quarterly Budget": { number: 2, value: 30720 },
-          },
-          lost: {
-            "Quarter to Date Actual": { number: 3, value: 3500 },
-            "Quarterly Budget": { number: 0, value: 0 },
-          },
-          existing: {
-            "Quarter to Date Actual": { number: 2, value: 60000 },
-            "Quarterly Budget": { number: 1, value: 64280 },
+          data: {
+            new: {
+              "Quarter to Date Actual": { number: 2, value: 43000 },
+              "Quarterly Budget": { number: 2, value: 30720 },
+            },
+            lost: {
+              "Quarter to Date Actual": { number: 3, value: 3500 },
+              "Quarterly Budget": { number: 0, value: 0 },
+            },
+            existing: {
+              "Quarter to Date Actual": { number: 2, value: 60000 },
+              "Quarterly Budget": { number: 1, value: 64280 },
+            },
           },
           totals: "more",
         },
         {
-          month: "March",
-          new: {
-            "Quarter to Date Actual": { number: 6, value: 195000 },
-            "Quarterly Budget": { number: 2, value: 30720 },
-          },
-          lost: {
-            "Quarter to Date Actual": { number: 3, value: 3500 },
-            "Quarterly Budget": { number: 0, value: 0 },
-          },
-          existing: {
-            "Quarter to Date Actual": { number: 2, value: 95000 },
-            "Quarterly Budget": { number: 1, value: 64280 },
+          month: "Mar",
+          data: {
+            new: {
+              "Quarter to Date Actual": { number: 6, value: 195000 },
+              "Quarterly Budget": { number: 2, value: 30720 },
+            },
+            lost: {
+              "Quarter to Date Actual": { number: 3, value: 3500 },
+              "Quarterly Budget": { number: 0, value: 0 },
+            },
+            existing: {
+              "Quarter to Date Actual": { number: 2, value: 95000 },
+              "Quarterly Budget": { number: 1, value: 64280 },
+            },
           },
           totals: "more",
         },
@@ -222,14 +248,17 @@ export default {
     variables() {
       return themeColors(this.$store.state.theme.skin);
     },
-    ohioNew() {
-      return this.ohio.map((mon) => mon.new);
+    stateNew() {
+      return this.ohio.map((mon) => mon.data.new);
     },
-    ohioLost() {
-      return this.ohio.map((mon) => mon.lost);
+    stateLost() {
+      return this.ohio.map((mon) => mon.data.lost);
     },
-    ohioExisting() {
-      return this.ohio.map((mon) => mon.existing);
+    stateExisting() {
+      return this.ohio.map((mon) => mon.data.existing);
+    },
+    monthRange() {
+      return this.ohio.map((mon) => mon.month);
     },
   },
 };

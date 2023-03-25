@@ -1,71 +1,70 @@
-
 <template>
-<b-card no-body
-    class="mb-0">
+  <b-card no-body class="mb-0">
     <b-card-header>
-        <card-title title="PDS"
-            subTitle="Wins, hit rate, backlog"> </card-title>
+      <card-title title="PDS" subTitle="Wins, hit rate, backlog"> </card-title>
     </b-card-header>
     <b-card-body>
-        <div class="card-table  table-responsive mb-0">
-            <table class="table table-sm table-hover align-middle h-100">
-                 <thead class="thead-light">
-                      <tr>
-                          <th class="text-center">Location</th>
-                          <th class="text-center">Wins YTD</th>
-                          <th class="text-center">Hit rate </th>
-                          <th class="text-center">A&B Funnel</th>
-                          <th class="text-center">Total Unrestricted Backlog</th>
-                          <th class="text-center">Unrestricted non-FTE Backlog</th>
-                          <th class="text-center">Unrestricted FTE Backlog</th>
-                          <th class="text-center">Restricted non-FTE Backlog</th>
-                          <th class="text-center">Restricted FTE Backlog</th>
-                          <th class="text-center">Total Backlog</th>
-                      </tr>
-                  </thead>
-                <tbody class>
-                    <tr v-for="sale in sales"
-                        :key="sale.id">
-                    
-                        <td class="align-middle  text-center font-weight-bold d-none d-sm-table-cell">
-                            {{sale.name}}
-                        </td>
-                        <td class="text-center d-none align-middle">
-                            <b-badge :variant="sale.variantState"
-                                class="ig-badge inverse">{{sale.textState}}</b-badge>
-                        </td>
-                        
-                        <td class="align-middle text-center d-none d-sm-table-cell">
-                            ${{sale.winsYtd}}
-                        </td>
-                        <td class="align-middle text-center d-none d-sm-table-cell">
-                            {{sale.hitRate}}%
-                        </td>
-                        <td class="align-middle text-center d-none d-sm-table-cell">
-                            ${{sale.abFunnel}}
-                        </td>
-                        <td class="align-middle text-center d-none d-sm-table-cell">
-                            ${{sale.totalUnrestricted}}
-                        </td>
-                        <td class="align-middle text-center d-none d-sm-table-cell">
-                            ${{sale.unrestrictedNonFte}}
-                        </td>
-                        <td class="align-middle text-center d-none d-sm-table-cell">
-                            ${{sale.unrestrictedFte}}
-                        </td>
-                        <td class="align-middle text-center d-none d-sm-table-cell">
-                            ${{sale.restrictedNonFteBacklog}}
-                        </td>
-                        <td class="align-middle text-center d-none d-sm-table-cell">
-                            ${{sale.restrictedFteBacklog}}
-                        </td>
-                        <td class="align-middle text-center d-none d-sm-table-cell">
-                            ${{sale.totalRestrictedBacklog}}
-                        </td>
-                    </tr>
+      <div class="card-table table-responsive mb-0">
+        <table class="table table-sm table-hover align-middle h-100">
+          <thead class="thead-light">
+            <tr>
+              <th class="text-center">Location</th>
+              <th class="text-center">Wins YTD</th>
+              <th class="text-center">Hit rate</th>
+              <th class="text-center">A&B Funnel</th>
+              <th class="text-center">Total Unrestricted Backlog</th>
+              <th class="text-center">Unrestricted non-FTE Backlog</th>
+              <th class="text-center">Unrestricted FTE Backlog</th>
+              <th class="text-center">Restricted non-FTE Backlog</th>
+              <th class="text-center">Restricted FTE Backlog</th>
+              <th class="text-center">Total Backlog</th>
+            </tr>
+          </thead>
+          <tbody class>
+            <tr v-for="sale in sales" :key="sale.id">
+              <td
+                class="align-middle text-center font-weight-bold d-none d-sm-table-cell"
+              >
+                {{ sale.name }}
+              </td>
+              <td class="text-center d-none align-middle">
+                <b-badge
+                  :variant="sale.variantState"
+                  class="ig-badge inverse"
+                  >{{ sale.textState }}</b-badge
+                >
+              </td>
 
-                </tbody>
-                <!-- <tfoot>
+              <td class="align-middle text-center d-none d-sm-table-cell">
+                ${{ sale.winsYtd }}
+              </td>
+              <td class="align-middle text-center d-none d-sm-table-cell">
+                {{ sale.hitRate }}%
+              </td>
+              <td class="align-middle text-center d-none d-sm-table-cell">
+                ${{ sale.abFunnel }}
+              </td>
+              <td class="align-middle text-center d-none d-sm-table-cell">
+                ${{ sale.totalUnrestricted }}
+              </td>
+              <td class="align-middle text-center d-none d-sm-table-cell">
+                ${{ sale.unrestrictedNonFte }}
+              </td>
+              <td class="align-middle text-center d-none d-sm-table-cell">
+                ${{ sale.unrestrictedFte }}
+              </td>
+              <td class="align-middle text-center d-none d-sm-table-cell">
+                ${{ sale.restrictedNonFteBacklog }}
+              </td>
+              <td class="align-middle text-center d-none d-sm-table-cell">
+                ${{ sale.restrictedFteBacklog }}
+              </td>
+              <td class="align-middle text-center d-none d-sm-table-cell">
+                ${{ sale.totalRestrictedBacklog }}
+              </td>
+            </tr>
+          </tbody>
+          <!-- <tfoot>
                     <tr>
                         <th>Customer</th>
                         <th class="d-none d-sm-table-cell">Email</th>
@@ -74,34 +73,45 @@
                         <th class="text-right  d-none d-sm-table-cell">Total</th>
                     </tr>
                 </tfoot> -->
-            </table>
-        </div>
-
+        </table>
+      </div>
     </b-card-body>
-    <b-card-footer class="d-flex flex-wrap align-items-center justify-content-center justify-content-sm-start">
-        <!-- <div class="flex-grow-1">
+    <b-card-footer
+      class="d-flex flex-wrap align-items-center justify-content-center justify-content-sm-start"
+    >
+      <!-- <div class="flex-grow-1">
             <card-pagination class="justify-content-center justify-content-sm-start"> </card-pagination>
 
         </div> -->
-        <b-button-group class="my-2 justify-content-center justify-content-sm-start">
-            <b-button @click="currentIdx=0"
-                :variant="currentIdx == 0 ? 'theme1' : 'link'"
-                :class="currentIdx == 0 ? 'inverse' : ''">SAFE</b-button>
-            <b-button @click="currentIdx=1"
-                :variant="currentIdx == 1 ? 'theme1' : 'link'"
-                :class="currentIdx == 1 ? 'inverse' : ''">CLOSE</b-button>
-            <b-button @click="currentIdx=2"
-                :variant="currentIdx == 2 ? 'theme1' : 'link'"
-                :class="currentIdx == 2 ? 'inverse' : ''">PROBLEM </b-button>
-        </b-button-group>
+      <b-button-group
+        class="my-2 justify-content-center justify-content-sm-start"
+      >
+        <b-button
+          @click="currentIdx = 0"
+          :variant="currentIdx == 0 ? 'theme1' : 'link'"
+          :class="currentIdx == 0 ? 'inverse' : ''"
+          >SAFE</b-button
+        >
+        <b-button
+          @click="currentIdx = 1"
+          :variant="currentIdx == 1 ? 'theme1' : 'link'"
+          :class="currentIdx == 1 ? 'inverse' : ''"
+          >CLOSE</b-button
+        >
+        <b-button
+          @click="currentIdx = 2"
+          :variant="currentIdx == 2 ? 'theme1' : 'link'"
+          :class="currentIdx == 2 ? 'inverse' : ''"
+          >PROBLEM
+        </b-button>
+      </b-button-group>
     </b-card-footer>
-
-</b-card>
+  </b-card>
 </template>
 <script>
 // import faker from 'faker'
-import CardTitle from '@/components/Base/Card/CardTitle'
-import CardPagination from '@/components/Base/Card/CardPagination'
+import CardTitle from "@/components/Base/Card/CardTitle";
+import CardPagination from "@/components/Base/Card/CardPagination";
 
 /*
 Show last created oders
@@ -109,10 +119,10 @@ Show last created oders
 export default {
   components: {
     CardTitle,
-    CardPagination
+    CardPagination,
   },
 
-  data () {
+  data() {
     return {
       sales: [
         {
@@ -128,7 +138,6 @@ export default {
           totalRestrictedBacklog: "71,603,000",
           variantState: "1",
           textState: "Safe",
-          
         },
         {
           name: "GBG MD",
@@ -143,7 +152,6 @@ export default {
           totalRestrictedBacklog: "100,000",
           variantState: "1",
           textState: "Safe",
-          
         },
         {
           name: "GBG Total",
@@ -158,7 +166,6 @@ export default {
           totalRestrictedBacklog: "71,703,000",
           variantState: "1",
           textState: "Safe",
-          
         },
         {
           name: "Ewing, NJ",
@@ -173,7 +180,6 @@ export default {
           totalRestrictedBacklog: "2,500,018",
           variantState: "2",
           textState: "Close",
-          
         },
         {
           name: "Region Total",
@@ -188,13 +194,11 @@ export default {
           totalRestrictedBacklog: "74,203,018",
           variantState: "2",
           textState: "Safe",
-          
         },
-
       ],
       currentIdx: 0,
-      checked: true
-    }
+      checked: true,
+    };
   },
 
   // created () {
@@ -219,11 +223,8 @@ export default {
   //     })
   //   }
   // }
-
-}
-
+};
 </script>
-
 
 <style lang="scss" scoped>
 .round i {
@@ -250,7 +251,4 @@ export default {
 tfoot th {
   color: var(--theme1-mixed-1);
 }
-
 </style>
-
-

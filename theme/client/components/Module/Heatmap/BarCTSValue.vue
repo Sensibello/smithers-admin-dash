@@ -13,8 +13,8 @@ import WrapperEcharts from "@/components/Module/Chart/Echarts/WrapperEcharts";
 import defaultPropsMixin from "@@/client/util/chart/defaultPropsMixin";
 
 /*
-Example of component for rendering the bar chart of the echarts library
-*/
+  Example of component for rendering the bar chart of the echarts library
+  */
 export default {
   components: {
     WrapperEcharts,
@@ -25,6 +25,7 @@ export default {
       type: Array,
       default: [2, 4, 6],
     },
+    months: Array,
   },
   data() {
     return { timer: null, dataIndex: 0, isAnimated: false };
@@ -80,18 +81,6 @@ export default {
   },
 
   computed: {
-    // getAllValues() {
-    //   return [
-    //     ...this.ctsData.map((i) => i["Quarter to Date Actual"].value),
-    //     ...this.ctsData.map((i) => i["Quarterly Budget"].value),
-    //   ];
-    // },
-    // setMinimum() {
-    //   return 0;
-    // },
-    // setMaximum() {
-    //   return Math.max(...this.getAllValues) * 1.05;
-    // },
     options() {
       const variablesColors = themeColors(this.$store.state.theme.skin);
       const barMaxWidth = "30%";
@@ -108,9 +97,9 @@ export default {
           axisPointer: {
             type: "shadow",
             shadowStyle: {
-              color: variablesColors.variantsObj.secondary["mixed"],
-              shadowColor: variablesColors.variantsObj.secondary["mixed"],
-              opacity: 0.5,
+              color: "#808080",
+              // shadowColor: "#ffffff",
+              opacity: 0.25,
             },
           },
         },
@@ -140,72 +129,38 @@ export default {
               alignWithLabel: true,
             },
             axisLabel: {
-              // formatter: '${value}',
               fontSize: 14,
               fontWeight: 500,
               color: "#202020",
             },
 
-            data: ["Jan", "Feb", "Mar"],
+            data: this.months,
           },
         ],
         yAxis: [
           {
             type: "value",
-            show: true,
-            splitLine: {
-              show: true,
-              lineStyle: {
-                color: "#808080",
-              },
-            },
+            name: "Amount",
             axisLine: {
               showGrid: false,
               lineStyle: {
                 color: "#808080",
               },
             },
-            position: "left",
-
             axisLabel: {
               formatter: "${value}",
               fontSize: 10,
               fontWeight: 500,
               color: "#202020",
-              offset: 80,
             },
-          },
-          {
-            type: "value",
-            name: "Lead",
-            show: false,
-            position: "right",
-            axisLabel: {
-              formatter: "{value} Win Ratio",
-            },
-          },
-          {
-            type: "value",
-            name: "Unit",
-            position: "left",
             splitLine: {
               show: true,
               lineStyle: {
                 color: "#808080",
               },
             },
-            axisLine: {
-              showGrid: false,
-              lineStyle: {
-                color: "#808080",
-              },
-            },
-            axisLabel: {
-              fontSize: 10,
-              fontWeight: 500,
-              color: "#202020",
-            },
           },
+          { type: "value", show: false },
         ],
         series: [
           {
@@ -260,9 +215,7 @@ export default {
 .echarts {
   flex: 20 20 20em;
   padding: 10px;
-  // div {
-  border: 1px solid #000000;
-  // }
+  border: 1px solid #202020;
 }
 .list-group {
   flex: 1 1 10em;
