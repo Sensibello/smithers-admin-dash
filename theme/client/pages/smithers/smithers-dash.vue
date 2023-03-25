@@ -62,8 +62,8 @@
           />
         </Card>
       </b-col>
-      <!-- <FourCharts>
-        <Card title="Wins" subTitle="new customers">
+      <FourCharts>
+        <Card class="col-md-6 col-sm-6" title="Wins" subTitle="new customers">
           <barCTS
             mainColorName="primary"
             style="min-height: 380px"
@@ -75,8 +75,58 @@
             :months="monthRange"
           />
         </Card>
-      </FourCharts> -->
-      <b-col md="12" lg="12">
+        <Card
+          class="col-md-6 col-sm-6"
+          title="Wins"
+          subTitle="new customers in numbers"
+        >
+          <barCTS
+            mainColorName="primary"
+            style="min-height: 380px"
+            title="New Bar Chart"
+            iconBgClass="info"
+            type="bar"
+            :lineSmooth="true"
+            :ctsData="stateNew"
+            :months="monthRange"
+            value="number"
+          />
+        </Card>
+        <Card
+          class="col-md-6 col-sm-6"
+          title="Existing"
+          subTitle="existing customers in value"
+        >
+          <barCTS
+            mainColorName="primary"
+            style="min-height: 380px"
+            title="New Bar Chart"
+            iconBgClass="info"
+            type="bar"
+            :lineSmooth="true"
+            :ctsData="stateExisting"
+            :months="monthRange"
+          />
+        </Card>
+        <Card
+          class="col-md-6 col-sm-6"
+          title="Existing"
+          subTitle="existing customers in numbers"
+        >
+          <barCTS
+            mainColorName="primary"
+            style="min-height: 380px"
+            title="New Bar Chart"
+            iconBgClass="info"
+            type="bar"
+            :lineSmooth="true"
+            :ctsData="stateExisting"
+            :months="monthRange"
+            value="number"
+          />
+        </Card>
+      </FourCharts>
+      <!-- <b-col md="12" lg="12">
         <Card title="Wins" subTitle="new customers in value">
           <barCTS
             mainColorName="primary"
@@ -89,52 +139,11 @@
             :months="monthRange"
           />
         </Card>
-      </b-col>
-      <b-col md="12" lg="12">
-        <Card title="Wins" subTitle="new customers in numbers">
-          <barCTS
-            mainColorName="primary"
-            style="min-height: 380px"
-            title="New Bar Chart"
-            iconBgClass="info"
-            type="bar"
-            :lineSmooth="true"
-            :ctsData="stateNew"
-            :months="monthRange"
-            value="number"
-          />
-        </Card>
-      </b-col>
+      </b-col> -->
+      <b-col md="12" lg="12"> </b-col>
 
-      <b-col md="12" lg="12">
-        <Card title="Existing" subTitle="existing customers in value">
-          <barCTS
-            mainColorName="primary"
-            style="min-height: 380px"
-            title="New Bar Chart"
-            iconBgClass="info"
-            type="bar"
-            :lineSmooth="true"
-            :ctsData="stateExisting"
-            :months="monthRange"
-          />
-        </Card>
-      </b-col>
-      <b-col md="12" lg="12">
-        <Card title="Existing" subTitle="existing customers in numbers">
-          <barCTS
-            mainColorName="primary"
-            style="min-height: 380px"
-            title="New Bar Chart"
-            iconBgClass="info"
-            type="bar"
-            :lineSmooth="true"
-            :ctsData="stateExisting"
-            :months="monthRange"
-            value="number"
-          />
-        </Card>
-      </b-col>
+      <b-col md="12" lg="12"> </b-col>
+      <b-col md="12" lg="12"> </b-col>
     </b-row>
     <!-- <four-charts3> </four-charts3> -->
     <!-- <page-footer> </page-footer> -->
