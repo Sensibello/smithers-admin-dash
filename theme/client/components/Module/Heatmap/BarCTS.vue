@@ -170,7 +170,6 @@ export default {
           {
             name: "Quarter to Date Actual",
             type: "bar",
-            // for each month quarter to date  value
             data: this.ctsData.map(
               (i) => i["Quarter to Date Actual"][this.value]
             ),
@@ -186,7 +185,6 @@ export default {
                 },
               },
             },
-
             barGap: "10%",
             zlevel: 1,
           },
@@ -195,8 +193,8 @@ export default {
             type: "bar",
             barMaxWidth: barMaxWidth,
             yAxisIndex: 1,
-            // for each month quarterly budget value
             data: this.ctsData.map((i) => i["Quarterly Budget"][this.value]),
+            // data: [30720, 30720, 30720],
             itemStyle: {
               barBorderRadius: barBorderRadius,
               normal: {
@@ -210,7 +208,6 @@ export default {
           },
         ],
       };
-
       return option;
     },
   },

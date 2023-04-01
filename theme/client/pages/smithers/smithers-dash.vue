@@ -62,6 +62,20 @@
           />
         </Card>
       </b-col>
+      <b-col md="12" lg="12">
+        <Card title="Projected" subTitle="QTD Revenues">
+          <barCTS
+            mainColorName="primary"
+            style="min-height: 380px"
+            title="projected qtd"
+            iconBgClass="info"
+            type="bar"
+            :lineSmooth="true"
+            :ctsData="stateProjected"
+            :months="monthRange"
+          />
+        </Card>
+      </b-col>
       <FourCharts>
         <Card class="col-md-6 col-sm-6" title="Wins" subTitle="new customers">
           <barCTS
@@ -126,24 +140,6 @@
           />
         </Card>
       </FourCharts>
-      <!-- <b-col md="12" lg="12">
-        <Card title="Wins" subTitle="new customers in value">
-          <barCTS
-            mainColorName="primary"
-            style="min-height: 380px"
-            title="New Bar Chart"
-            iconBgClass="info"
-            type="bar"
-            :lineSmooth="true"
-            :ctsData="stateNew"
-            :months="monthRange"
-          />
-        </Card>
-      </b-col> -->
-      <b-col md="12" lg="12"> </b-col>
-
-      <b-col md="12" lg="12"> </b-col>
-      <b-col md="12" lg="12"> </b-col>
     </b-row>
     <!-- <four-charts3> </four-charts3> -->
     <!-- <page-footer> </page-footer> -->
@@ -211,6 +207,12 @@ export default {
               "Quarter to Date Actual": { number: 2, value: 25000 },
               "Quarterly Budget": { number: 1, value: 64280 },
             },
+            projected: {
+              "Quarter to Date Actual": {
+                value: 99500,
+              },
+              "Quarterly Budget": { value: 99500 },
+            },
           },
           totals: "more",
         },
@@ -228,6 +230,12 @@ export default {
             existing: {
               "Quarter to Date Actual": { number: 2, value: 60000 },
               "Quarterly Budget": { number: 1, value: 64280 },
+            },
+            projected: {
+              "Quarter to Date Actual": {
+                value: 99500,
+              },
+              "Quarterly Budget": { value: 99500 },
             },
           },
           totals: "more",
@@ -247,9 +255,40 @@ export default {
               "Quarter to Date Actual": { number: 2, value: 95000 },
               "Quarterly Budget": { number: 1, value: 64280 },
             },
+            projected: {
+              "Quarter to Date Actual": { value: 286500 },
+              "Quarterly Budget": { value: 99500 },
+            },
           },
           totals: "more",
         },
+        // {
+        //   month: "Apr",
+        //   data: {
+        //     projected: {
+        //       "Quarter to Date Actual": 114000,
+        //       "Quarterly Budget": 208000,
+        //     },
+        //   },
+        // },
+        // {
+        //   month: "May",
+        //   data: {
+        //     projected: {
+        //       "Quarter to Date Actual": 358000,
+        //       "Quarterly Budget": 208000,
+        //     },
+        //   },
+        // },
+        // {
+        //   month: "Jun",
+        //   data: {
+        //     projected: {
+        //       "Quarter to Date Actual": 575000,
+        //       "Quarterly Budget": 208000,
+        //     },
+        //   },
+        // },
       ],
     };
   },
@@ -265,6 +304,9 @@ export default {
     },
     stateExisting() {
       return this.ohio.map((mon) => mon.data.existing);
+    },
+    stateProjected() {
+      return this.ohio.map((mon) => mon.data.projected);
     },
     monthRange() {
       return this.ohio.map((mon) => mon.month);

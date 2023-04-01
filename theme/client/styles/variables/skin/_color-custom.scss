@@ -1,0 +1,188 @@
+$blue: #000088;
+$indigo: #00ffff;
+$purple: #880088;
+$pink: #ff8888;
+$red: #ff0000;
+$orange: #ff8800;
+$yellow: #ffcc00;
+$green: #008800;
+$teal: #008888;
+$cyan: #17a2b8;
+$white: #fff;
+
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-600: #868e96;
+$gray-700: #495057;
+$gray-800: #343a40;
+$gray-900: #ff0088;
+$black: #000;
+
+$grays: (
+  100: $gray-100,
+  200: $gray-200,
+  300: $gray-300,
+  400: $gray-400,
+  500: $gray-500,
+  600: $gray-600,
+  700: $gray-700,
+  800: $gray-800,
+  900: $gray-900,
+);
+
+$colors: (
+  blue: $blue,
+  indigo: $indigo,
+  purple: $purple,
+  pink: $pink,
+  red: $red,
+  orange: $orange,
+  yellow: $yellow,
+  green: $green,
+  teal: $teal,
+  cyan: $cyan,
+  white: $white,
+  gray: $gray-600,
+  gray-dark: $gray-800,
+);
+
+//New theme state colors
+$theme1: #ff0000;
+$theme2: #00ff00; //same as side menu
+$theme3: #ff00ff;
+
+$primary: #ff00ff; //#334d91; //!default; //#51328e; //#672FB0; //
+$secondary: #00ffff; //#777797;
+$success: $green;
+$info: #3d58ff;
+$warning: #f1c23e;
+$danger: #f04165;
+$light: $gray-300; //$theme3;//
+$dark: $gray-800;
+
+$theme1inv: #ffdddd;
+$theme2inv: #0055aa;
+$theme3inv: #55ff99;
+
+$theme-body-image: linear-gradient(to right top, #f5f5fb, #f9f9fc, #fbfbfb);
+@import "../../mixin/_color.scss";
+
+// Color Settings
+
+$theme-color-mixed-color: #fff;
+$theme-color-mixed-percent: 7%;
+$theme-color-mixed-percent-1: 35%;
+$theme-color-mixed-opacity: 0.85;
+
+$theme-color-darkness-percent: 90%;
+
+$theme1-map: get-color-map($theme1);
+$secondary-map: get-color-map($secondary);
+
+$body-color: $theme2;
+
+//Overide some variables based on skin to generate new bs4
+$pagination-active-bg: $primary;
+$pagination-active-border-color: $primary;
+$chartPallete: $primary, $secondary, $theme1, $theme2, $theme3;
+$card-cap-bg: #002244;
+$card-bg: #202020;
+
+$pagination-bg: #ffffff;
+$pagination-hover-bg: $gray-200;
+$pagination-disabled-bg: #ffffff;
+
+$pagination-active-color: $primary;
+$pagination-active-bg: mix($primary, white, 6%);
+
+$table-color: $theme1;
+$table-head-bg: map-get($secondary-map, "mixed");
+$table-active-bg: map-get($theme1-map, "mixed");
+$table-border-color: map-get($theme1-map, "mixed");
+$table-hover-bg: map-get($secondary-map, "mixed");
+
+//List Group
+$list-group-bg: $theme1inv;
+$list-group-action-active-bg: $theme2inv;
+
+// Side menu main variables
+$theme-side-color: $theme1;
+$theme-side-bg: $theme1inv;
+$theme-side-color2: $theme2;
+$theme-side-bg2: $theme2inv;
+$theme-side-color3: $theme3;
+$theme-side-bg3: $theme3inv;
+$theme-side-logo-color: $primary;
+$theme-side-logo-color2: $theme1;
+$theme-side-logo-bg: $theme3inv;
+$theme-side-icon-color: $theme1;
+
+$theme-side-scroll-color: $theme1inv;
+
+$theme-navtop-bg: $theme1inv;
+$theme-navtop-color: $theme1;
+$theme-navtop-item-color: $theme1;
+
+$theme-border-color: mix(#fff, map-get($theme1-map, "mixed"), 70%);
+
+$theme-header-bg-extended: transparent;
+$theme-side-box-shadow: 8px 0px 50px -23px #dcdce8;
+
+$list-group-border-color: map-get($theme1-map, "mixed");
+
+$theme-side-color: #c9cddf;
+$theme-side-bg: #ff00ff; //#162899; //#505dad; //#13182c;
+$theme-side-bg2: #00ffff; //#142593; //#4553a8;
+$theme-side-logo-color: #eaecf4;
+$theme-side-logo-color2: #9ca1b9;
+$theme-side-logo-bg: $danger;
+$theme-navtop-color: var(--theme1-mixed-1);
+$theme-side-icon-color: #8f97d4;
+
+$theme-side-scroll-color: #20207d;
+
+$theme-side-padding: 0px;
+$theme-side-radius: 0px;
+
+// @import "./_default-light-export.scss";
+$theme-colors: (
+  //   primary: $primary,
+  primary: #ff00ff,
+  secondary: #00ffff,
+  success: $success,
+  info: $info,
+  warning: $warning,
+  danger: $danger,
+  light: $light,
+  dark: $dark,
+  theme1inv: $theme1inv,
+  theme2inv: $theme2inv,
+  theme3inv: $theme3inv,
+  theme1: $theme1,
+  theme2: $theme2,
+  theme3: $theme3
+);
+
+@import "./_default-export.scss";
+
+:export {
+  primary: $primary;
+  secondary: $secondary;
+  success: $success;
+  info: $info;
+  warning: $warning;
+  danger: $danger;
+  light: $light;
+  dark: $dark;
+  theme1: $theme1;
+  theme2: $theme2;
+  theme3: $theme3;
+  theme1inv: $theme1inv;
+  theme2inv: $theme2inv;
+  theme3inv: $theme3inv;
+  chartPallete: $chartPallete;
+  variants: $theme-colors-map;
+}
