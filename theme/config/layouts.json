@@ -42,7 +42,7 @@
       "headerBoxed": true,
       "headerBgOnScroll": true,
       "menuMinimized": true,
-      "skin": "purple",
+      "skin": "green",
       "menuLogoBg": "#FFF"
     },
     "demo4": {
@@ -59,7 +59,7 @@
       "menuHide": false,
       "menuMinimized": true,
       "menuContinuous": true,
-      "skin": "grey"
+      "skin": "green"
     },
     "demo6": {
       "menuMinimized": true,
@@ -70,7 +70,7 @@
       "headerBoxed": true,
       "breadcrumbHide": false,
       "contentBoxed": true,
-      "skin": "dark-blue"
+      "skin": "green"
     },
     "demo7": {
       "headerBoxed": false,
@@ -91,21 +91,21 @@
       "menuContinuous": false,
       "menuMinimized": false,
       "headerExtended": true,
-      "skin": "blue"
+      "skin": "green"
     },
     "demo9": {
       "menuLogoBg": "#868585",
       "headerBoxed": true,
       "contentBoxed": true,
       "menuMinimized": true,
-      "skin": "back-image"
+      "skin": "green"
     },
     "demo10": {
       "breadcrumbHide": false,
       "menuCompacted": false,
       "menuMinimized": true,
       "headerBg": "linear-gradient(90deg, #FC466B 0%, #3F5EFB 100%)",
-      "skin": "blue-light",
+      "skin": "green",
       "headerBoxed": true,
       "contentBoxed": true
     }
