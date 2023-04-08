@@ -1,5 +1,4 @@
 import skinDefault from "@@/client/styles/variables/base/_default-skin.scss";
-
 import skinBlue from "@@/client/styles/variables/skin/_blue.scss";
 import skinBlueLight from "@@/client/styles/variables/skin/_blue-light.scss";
 import skinPurple from "@@/client/styles/variables/skin/_purple.scss";
@@ -7,13 +6,11 @@ import skinRed from "@@/client/styles/variables/skin/_red.scss";
 import skinGrey from "@@/client/styles/variables/skin/_grey.scss";
 import skinGreen from "@@/client/styles/variables/skin/_green.scss";
 import skinMaterial from "@@/client/styles/variables/skin/_material.scss";
-
 import skinDarkBlue from "@@/client/styles/variables/skin/_dark-blue.scss";
 import skinDarkGolden from "@@/client/styles/variables/skin/_dark-golden.scss";
 import skinDarkGrey from "@@/client/styles/variables/skin/_dark-grey.scss";
 import skinDarkPurple from "@@/client/styles/variables/skin/_dark-purple.scss";
 import skinDarkMaterial from "@@/client/styles/variables/skin/_dark-material.scss";
-
 import skinGreyGolden from "@@/client/styles/variables/skin/_grey-golden.scss";
 import skinGreyMaterial from "@@/client/styles/variables/skin/_grey-material.scss";
 import skinBackImage from "@@/client/styles/variables/skin/_back-image.scss";
@@ -61,12 +58,13 @@ function strVariantToMap(strVariants) {
 
 export default (skinName) => {
   let variablesColors = skinDefault;
+  if (skinName === "color-custom") variablesColors = skinColorCustom;
+  if (skinName === "green") variablesColors = skinGreen;
   if (skinName === "blue") variablesColors = skinBlue;
   if (skinName === "blue-light") variablesColors = skinBlueLight;
   if (skinName === "purple") variablesColors = skinPurple;
   if (skinName === "red") variablesColors = skinRed;
   if (skinName === "grey") variablesColors = skinGrey;
-  if (skinName === "green") variablesColors = skinGreen;
   if (skinName === "material") variablesColors = skinMaterial;
   if (skinName === "dark-blue") variablesColors = skinDarkBlue;
   if (skinName === "dark-golden") variablesColors = skinDarkGolden;
@@ -79,7 +77,6 @@ export default (skinName) => {
   if (skinName === "color-purple-air") variablesColors = skinColorPurpleAir;
   if (skinName === "color-dark-sky") variablesColors = skinColorDarkSky;
   if (skinName === "color-carbon") variablesColors = skinColorCarbon;
-  if (skinName === "color-custom") variablesColors = skinColorCustom;
 
   variablesColors.variantsObj = strVariantToMap(variablesColors.variants);
 

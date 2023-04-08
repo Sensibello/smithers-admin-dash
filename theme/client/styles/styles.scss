@@ -1,5 +1,6 @@
 @import "./mixin/_color";
-@import "./variables/skin/_blue";
+// changed this to turn off the blue theme by default
+@import "./variables/skin/_color-custom";
 @import "./variables/base/all";
 @import "~bootstrap/scss/bootstrap";
 @import "./variables/base/_sidemenu.scss";

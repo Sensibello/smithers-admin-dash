@@ -8,10 +8,9 @@ module.exports = {
   build: {
     babel: {
       plugins: [
-        ['@babel/plugin-proposal-private-methods', { loose: true }],
-        ['@babel/plugin-proposal-private-property-in-object', { loose: true }]
+        ["@babel/plugin-proposal-private-methods", { loose: true }],
+        ["@babel/plugin-proposal-private-property-in-object", { loose: true }],
       ],
-      
     },
     cssSourceMap: false,
     parallel: false,
@@ -20,84 +19,79 @@ module.exports = {
     optimizeCss: true,
     extractCSS: false,
     filenames: {
-      chunk: ({ isDev }) => isDev ? '[name].js' : '[id].[contenthash].js'
+      chunk: ({ isDev }) => (isDev ? "[name].js" : "[id].[contenthash].js"),
     },
     // transpile: ['feathers-vuex'],
   },
   env: {
     disableAuth: process.env.DISABLE_AUTH || false,
-    apiURL: process.env.API_URL || "//localhost:3031"
+    apiURL: process.env.API_URL || "//localhost:3031",
   },
   ssr: false,
   srcDir: resolve(__dirname, "./client"),
   router: {
-    middleware: ["component-meta", "theme", "persist-skin", "auth"],
+    middleware: ["auth"],
     extendRoutes(routes, resolve) {
-      const newRoutes = []
+      const newRoutes = [];
       for (let i = 0; i < routes.length; i++) {
         for (let l = 1; l <= 10; l++) {
-          const newRoute = { ...routes[i] }
-          const layout = 'demo' + l
-          newRoute.path = '/' + layout + newRoute.path
-          newRoute.name = layout + '-' + newRoute.name
-          if (!newRoute.meta) newRoute.meta = {}
-          newRoute.meta.layout = layout
+          const newRoute = { ...routes[i] };
+          const layout = "demo" + l;
+          newRoute.path = "/" + layout + newRoute.path;
+          newRoute.name = layout + "-" + newRoute.name;
+          if (!newRoute.meta) newRoute.meta = {};
+          newRoute.meta.layout = layout;
 
-
-          newRoutes.push(newRoute)
+          newRoutes.push(newRoute);
         }
       }
-      routes.unshift(...newRoutes)
-    }
+      routes.unshift(...newRoutes);
+    },
   },
   head: {
     title: `${package.name} — ${package.description}`,
     meta: [
       { charset: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" }
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
     ],
     link: [
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css?family=Poppins:100,400,500,600,700"
+        href: "https://fonts.googleapis.com/css?family=Poppins:100,400,500,600,700",
       },
       {
         rel: "stylesheet",
-        href: "/font/typicons/typicons.min.css"
+        href: "/font/typicons/typicons.min.css",
       },
       {
         rel: "stylesheet",
-        href: "/font/fontawesome/css/all.css"
+        href: "/font/fontawesome/css/all.css",
       },
       {
         rel: "stylesheet",
-        href:
-          "/font/weather-icons/css/weather-icons.min.css"
+        href: "/font/weather-icons/css/weather-icons.min.css",
       },
       {
         rel: "stylesheet",
-        href:
-          "/font/line-awesome/css/line-awesome.min.css"
+        href: "/font/line-awesome/css/line-awesome.min.css",
       },
       {
         rel: "stylesheet",
-        href:
-          "/font/linearicons/style.css"
+        href: "/font/linearicons/style.css",
       },
       {
         rel: "stylesheet",
-        href:
-          "/font/dripicons/webfont.css"
+        href: "/font/dripicons/webfont.css",
       },
     ],
     script: [
       {
         src: "https://code.jquery.com/jquery-3.3.1.min.js",
-        type: "text/javascript"
+        type: "text/javascript",
       },
-    ]
+    ],
   },
-   /*
+  /*
    ** Build configuration
    */
 
@@ -105,9 +99,9 @@ module.exports = {
   modules: ["bootstrap-vue/nuxt"],
   bootstrapVue: {
     bootstrapCSS: false, // or `css`
-    bootstrapVueCSS: false // or `bvCSS`
+    bootstrapVueCSS: false, // or `bvCSS`
   },
-  
+
   plugins: [
     { src: "~/plugins/vue-echarts.js", ssr: false },
     { src: "~/plugins/vue-editor.js", ssr: false },
@@ -123,13 +117,13 @@ module.exports = {
     { src: "~/plugins/vue-image-compare.js", ssr: false },
     { src: "~/plugins/aos.js", ssr: false },
     { src: "~/plugins/vue-perfect-scroll.js", ssr: false },
-    { src: '~/plugins/google-analytics.js', ssr: false }
+    { src: "~/plugins/google-analytics.js", ssr: false },
   ],
   vendor: [
     "vue-upload-multiple-image",
     "vue-editor",
     "vue-echarts",
     "vue-simple-calendar",
-    "vue-kanban"
-  ]
+    "vue-kanban",
+  ],
 };

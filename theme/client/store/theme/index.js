@@ -1,6 +1,6 @@
 const state = () => ({
   componentMeta: null,
-  skin: "green",
+  skin: "color-custom",
 });
 
 const mutations = {

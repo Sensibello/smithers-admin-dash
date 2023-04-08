@@ -1,7 +1,7 @@
 {
   "default": {
     "headerBoxed": false,
-    "headerBg": "transparent",
+    "headerBg": "#202020",
     "headerExtended": false,
     "headerExtendedBg": "#008888",
     "headerBgOnScroll": false,
