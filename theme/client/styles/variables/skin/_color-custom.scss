@@ -1,73 +1,85 @@
-$blue: #000088;
-$indigo: #00ffff;
-$purple: #880088;
-$pink: #ff8888;
-$red: #ff0000;
-$orange: #ff8800;
-$yellow: #ffcc00;
-$green: #008800;
-$teal: #008888;
-$cyan: #17a2b8;
-$white: #fff;
+@import "../base/_default-colors.scss";
 
-$gray-100: #f8f9fa;
-$gray-200: #e9ecef;
-$gray-300: #dee2e6;
-$gray-400: #ced4da;
-$gray-500: #adb5bd;
-$gray-600: #868e96;
-$gray-700: #495057;
-$gray-800: #343a40;
-$gray-900: #ff0088;
-$black: #000;
+// $blue: #000088;
+// $indigo: #00ffff;
+// $purple: #880088;
+// $pink: #ff8888;
+// $red: #ff0000;
+// $orange: #ff8800;
+// $yellow: #ffcc00;
+// $green: #008800;
+// $teal: #008888;
+// $cyan: #17a2b8;
+// $white: #fff;
 
-$grays: (
-  100: $gray-100,
-  200: $gray-200,
-  300: $gray-300,
-  400: $gray-400,
-  500: $gray-500,
-  600: $gray-600,
-  700: $gray-700,
-  800: $gray-800,
-  900: $gray-900,
-);
+// $gray-100: #f8f9fa;
+// $gray-200: #e9ecef;
+// $gray-300: #dee2e6;
+// $gray-400: #ced4da;
+// $gray-500: #adb5bd;
+// $gray-600: #868e96;
+// $gray-700: #495057;
+// $gray-800: #343a40;
+// $gray-900: #ff0088;
+// $black: #000;
 
-$colors: (
-  blue: $blue,
-  indigo: $indigo,
-  purple: $purple,
-  pink: $pink,
-  red: $red,
-  orange: $orange,
-  yellow: $yellow,
-  green: $green,
-  teal: $teal,
-  cyan: $cyan,
-  white: $white,
-  gray: $gray-600,
-  gray-dark: $gray-800,
-);
+// $grays: (
+//   100: $gray-100,
+//   200: $gray-200,
+//   300: $gray-300,
+//   400: $gray-400,
+//   500: $gray-500,
+//   600: $gray-600,
+//   700: $gray-700,
+//   800: $gray-800,
+//   900: $gray-900,
+// );
+
+// $colors: (
+//   blue: $blue,
+//   indigo: $indigo,
+//   purple: $purple,
+//   pink: $pink,
+//   red: $red,
+//   orange: $orange,
+//   yellow: $yellow,
+//   green: $green,
+//   teal: $teal,
+//   cyan: $cyan,
+//   white: $white,
+//   gray: $gray-600,
+//   gray-dark: $gray-800,
+// );
+// end _default-colors
 
 //New theme state colors
-$theme1: #ff0000;
-$theme2: #008800; //same as side menu
+
+//
+$theme1: #ffaa00;
+// main body color
+$theme2: #008800;
 $theme3: #ff00ff;
 
-$primary: #ff00ff; //#334d91; //!default; //#51328e; //#672FB0; //
-$secondary: #00ffff; //#777797;
+$primary: #ff5544;
+$secondary: #005544;
 $success: $green;
 $info: #3d58ff;
 $warning: #f1c23e;
 $danger: #f04165;
-$light: $gray-300; //$theme3;//
+$light: $gray-300;
 $dark: $gray-800;
 
-$theme1inv: #ffdddd;
+// @import "./template/_bg-light.scss";
+
+$theme1inv: #888888; // baked into chart tooltip background
 $theme2inv: #0055aa;
 $theme3inv: #55ff99;
 
 $theme-body-image: linear-gradient(to right top, #f5f5fb, #f9f9fc, #fbfbfb);
+
+// end @import "./template/_bg-light.scss";
+
+// @import "./_default-light-init.scss";
 @import "../../mixin/_color.scss";
 
 // Color Settings
@@ -89,7 +101,7 @@ $pagination-active-bg: $primary;
 $pagination-active-border-color: $primary;
 $chartPallete: $primary, $secondary, $theme1, $theme2, $theme3;
 $card-cap-bg: #002244;
-$card-bg: #202020;
+$card-bg: #004466;
 
 $pagination-bg: #ffffff;
 $pagination-hover-bg: $gray-200;
@@ -99,8 +111,9 @@ $pagination-active-color: $primary;
 $pagination-active-bg: mix($primary, white, 6%);
 
 $table-color: $theme1;
-$table-head-bg: map-get($secondary-map, "mixed");
-$table-active-bg: map-get($theme1-map, "mixed");
+$table-head-bg: map-get($secondary-map, "light");
+
+$table-active-bg: map-get($theme1-map, "dark");
 $table-border-color: map-get($theme1-map, "mixed");
 $table-hover-bg: map-get($secondary-map, "mixed");
 
@@ -133,6 +146,8 @@ $theme-side-box-shadow: 8px 0px 50px -23px #dcdce8;
 
 $list-group-border-color: map-get($theme1-map, "mixed");
 
+// end @import "./_default-light-init.scss";
+
 $theme-side-color: #c9cddf;
 $theme-side-bg: #ff00ff; //#162899; //#505dad; //#13182c;
 $theme-side-bg2: #00ffff; //#142593; //#4553a8;
@@ -147,42 +162,4 @@ $theme-side-scroll-color: #20207d;
 $theme-side-padding: 0px;
 $theme-side-radius: 0px;
 
-// @import "./_default-light-export.scss";
-$theme-colors: (
-  //   primary: $primary,
-  primary: #ff00ff,
-  secondary: #00ffff,
-  success: $success,
-  info: $info,
-  warning: $warning,
-  danger: $danger,
-  light: $light,
-  dark: $dark,
-  theme1inv: $theme1inv,
-  theme2inv: $theme2inv,
-  theme3inv: $theme3inv,
-  theme1: $theme1,
-  theme2: $theme2,
-  theme3: $theme3
-);
-
-@import "./_default-export.scss";
-
-:export {
-  primary: $primary;
-  secondary: $secondary;
-  success: $success;
-  info: $info;
-  warning: $warning;
-  danger: $danger;
-  light: $light;
-  dark: $dark;
-  theme1: $theme1;
-  theme2: $theme2;
-  theme3: $theme3;
-  theme1inv: $theme1inv;
-  theme2inv: $theme2inv;
-  theme3inv: $theme3inv;
-  chartPallete: $chartPallete;
-  variants: $theme-colors-map;
-}
+@import "./_default-light-export.scss";

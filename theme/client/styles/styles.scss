@@ -1,6 +1,7 @@
 @import "./mixin/_color";
 // changed this to turn off the blue theme by default
 @import "./variables/skin/_color-custom";
+// @import "./variables/skin/_default";
 @import "./variables/base/all";
 @import "~bootstrap/scss/bootstrap";
 @import "./variables/base/_sidemenu.scss";
@@ -36,5 +37,5 @@
 @import "./third/_vue-editor.scss";
 
 :root {
-  @include generate-root-colors();
+  // @include generate-root-colors();
 }
