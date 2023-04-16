@@ -55,14 +55,14 @@
 //New theme state colors
 
 //
-$theme1: #ffaa00;
-// main body color
-$theme2: #008800;
+$theme1: #ffaa00; // default text color for most components
+
+$theme2: #008800; // default body color ( Heatmap h2)
 $theme3: #ff00ff;
 
 $primary: #ff5544;
 $secondary: #005544;
-$success: $green;
+$success: $green; // applied to .text-success
 $info: #3d58ff;
 $warning: #f1c23e;
 $danger: #f04165;

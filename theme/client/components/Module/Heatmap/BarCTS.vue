@@ -102,6 +102,8 @@ export default {
             type: "shadow",
             shadowStyle: {
               color: "#808080",
+              // color: variablesColors.variantsObj.secondary["mixed"],
+
               // shadowColor: "#ffffff",
               opacity: 0.25,
             },
@@ -177,7 +179,9 @@ export default {
             itemStyle: {
               barBorderRadius: barBorderRadius,
               normal: {
-                color: "#0000aa",
+                // color: "#0000aa",
+                color: variablesColors.variantsObj.secondary["mixed"],
+
                 backgroundColor: "#ff0000",
                 label: {
                   show: true,
@@ -198,7 +202,9 @@ export default {
             itemStyle: {
               barBorderRadius: barBorderRadius,
               normal: {
-                color: "#00aa44",
+                // color: "#00aa44",
+                // color: variablesColors.variantsObj.theme1.mixed,
+                color: variablesColors.variantsObj.primary["base"],
                 label: {
                   show: true,
                   position: "top",
