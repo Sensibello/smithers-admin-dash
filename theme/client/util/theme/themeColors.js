@@ -1,8 +1,4 @@
-import skinDefault from "@@/client/styles/variables/base/_default-skin.scss";
 import skinColorCustom from "@@/client/styles/variables/skin/_color-custom.scss";
-import skinGreen from "@@/client/styles/variables/skin/_green.scss";
-import skinBlue from "@@/client/styles/variables/skin/_blue.scss";
-import skinColorCarbon from "@@/client/styles/variables/skin/_color-carbon.scss";
 
 function getValueByName(name, arrValues) {
   for (let i = 0; i < arrValues.length; i++) {
@@ -44,9 +40,6 @@ function strVariantToMap(strVariants) {
 export default (skinName) => {
   let variablesColors = skinDefault;
   if (skinName === "color-custom") variablesColors = skinColorCustom;
-  if (skinName === "green") variablesColors = skinGreen;
-  if (skinName === "blue") variablesColors = skinBlue;
-  if (skinName === "color-carbon") variablesColors = skinColorCarbon;
 
   variablesColors.variantsObj = strVariantToMap(variablesColors.variants);
 

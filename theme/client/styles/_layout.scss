@@ -96,7 +96,7 @@ nav.nav-sidebar {
   #context-content {
     flex-basis: $theme-context-width;
     //width: $theme-context-width;
-    background-color: $theme1inv;
+    // background-color: $theme1inv;
     margin-right: 4px;
     flex-shrink: 0;
     overflow: auto;
@@ -142,7 +142,7 @@ main {
   margin: 0px 0 0px 3px;
   //margin-left: 4px;
   overflow-y: auto;
-  border-top: 4px solid $theme3inv;
+  // border-top: 4px solid $theme3inv;
 }
 
 footer {
@@ -169,12 +169,4 @@ footer {
       margin-left: 0px;
     }
   }
-}
-
-@include respond-between(xs, lg) {
-  /*
-  .container-body {
-    grid-template-columns: auto auto minmax(0, 1fr);
-  }
-  */
 }

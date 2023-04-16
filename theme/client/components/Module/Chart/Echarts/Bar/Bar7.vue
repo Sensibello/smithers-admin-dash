@@ -1,188 +1,205 @@
-
 <template>
-<wrapper-echarts :options="options"> </wrapper-echarts>
+  <wrapper-echarts :options="options"> </wrapper-echarts>
 </template>
 <script>
-import variablesColors from '@@/client/styles/variables/base/_default-skin.scss'
-import WrapperEcharts from '@/components/Module/Chart/Echarts/WrapperEcharts'
-import defaultPropsMixin from '@@/client/util/chart/defaultPropsMixin'
+// import variablesColors from "@@/client/styles/variables/base/_default-skin.scss";
+import WrapperEcharts from "@/components/Module/Chart/Echarts/WrapperEcharts";
+import defaultPropsMixin from "@@/client/util/chart/defaultPropsMixin";
 
 /*
 Example of component for rendering the bar chart of the echarts library
 */
 export default {
   components: {
-    WrapperEcharts
+    WrapperEcharts,
   },
   mixins: [defaultPropsMixin],
 
-  data () {
+  data() {
     let option = {
       title: {
         text: this.title,
-        subtext: this.subtitle
+        subtext: this.subtitle,
       },
       tooltip: {
-        trigger: 'axis'
+        trigger: "axis",
       },
       legend: {
-        data: ['ECharts1 - 2k', 'ECharts1 - 2w', 'ECharts1 - 20w', '', 'ECharts2 - 2k', 'ECharts2 - 2w', 'ECharts2 - 20w']
+        data: [
+          "ECharts1 - 2k",
+          "ECharts1 - 2w",
+          "ECharts1 - 20w",
+          "",
+          "ECharts2 - 2k",
+          "ECharts2 - 2w",
+          "ECharts2 - 20w",
+        ],
       },
       toolbox: {
         show: false,
         feature: {
           mark: {
-            show: true
+            show: true,
           },
           dataView: {
             show: true,
-            readOnly: false
+            readOnly: false,
           },
           magicType: {
             show: true,
-            type: ['line', 'bar']
+            type: ["line", "bar"],
           },
           restore: {
-            show: true
+            show: true,
           },
           saveAsImage: {
-            show: true
-          }
-        }
+            show: true,
+          },
+        },
       },
       calculable: true,
       grid: {
         y: 70,
         y2: 30,
-        x2: 20
+        x2: 20,
       },
-      xAxis: [{
-        type: 'category',
-        data: ['Line', 'Bar', 'Scatter', 'K', 'Map']
-      }, {
-        type: 'category',
-        axisLine: {
-          show: false
+      xAxis: [
+        {
+          type: "category",
+          data: ["Line", "Bar", "Scatter", "K", "Map"],
         },
-        axisTick: {
-          show: false
+        {
+          type: "category",
+          axisLine: {
+            show: false,
+          },
+          axisTick: {
+            show: false,
+          },
+          axisLabel: {
+            show: false,
+          },
+          splitArea: {
+            show: false,
+          },
+          splitLine: {
+            show: false,
+          },
+          data: ["Line", "Bar", "Scatter", "K", "Map"],
         },
-        axisLabel: {
-          show: false
+      ],
+      yAxis: [
+        {
+          type: "value",
+          axisLabel: {
+            formatter: "{value} ms",
+          },
         },
-        splitArea: {
-          show: false
+      ],
+      series: [
+        {
+          name: "ECharts2 - 2k",
+          type: "bar",
+          itemStyle: {
+            normal: {
+              // color: variablesColors.secondary,
+              label: {
+                show: true,
+              },
+            },
+          },
+          data: [40, 155, 95, 75, 0],
         },
-        splitLine: {
-          show: false
+        {
+          name: "ECharts2 - 2w",
+          type: "bar",
+          itemStyle: {
+            normal: {
+              // color: variablesColors.primary,
+              label: {
+                show: true,
+                textStyle: {
+                  color: "#27727B",
+                },
+              },
+            },
+          },
+          data: [100, 200, 105, 100, 156],
         },
-        data: ['Line', 'Bar', 'Scatter', 'K', 'Map']
-      }],
-      yAxis: [{
-        type: 'value',
-        axisLabel: {
-          formatter: '{value} ms'
-        }
-      }],
-      series: [{
-        name: 'ECharts2 - 2k',
-        type: 'bar',
-        itemStyle: {
-          normal: {
-            color: variablesColors.secondary,
-            label: {
-              show: true
-            }
-          }
+        {
+          name: "ECharts2 - 20w",
+          type: "bar",
+          itemStyle: {
+            normal: {
+              // color: variablesColors.secondary,
+              label: {
+                show: true,
+                textStyle: {
+                  color: "#E87C25",
+                },
+              },
+            },
+          },
+          data: [906, 911, 908, 778, 0],
         },
-        data: [40, 155, 95, 75, 0]
-      }, {
-        name: 'ECharts2 - 2w',
-        type: 'bar',
-        itemStyle: {
-          normal: {
-            color: variablesColors.primary,
-            label: {
-              show: true,
-              textStyle: {
-                color: '#27727B'
-              }
-            }
-          }
+        {
+          name: "ECharts1 - 2k",
+          type: "bar",
+          xAxisIndex: 1,
+          itemStyle: {
+            normal: {
+              // color: variablesColors.secondary,
+              label: {
+                show: true,
+                formatter: function (p) {
+                  return p.value > 0 ? p.value + "\n" : "";
+                },
+              },
+            },
+          },
+          data: [96, 224, 164, 124, 0],
         },
-        data: [100, 200, 105, 100, 156]
-      }, {
-        name: 'ECharts2 - 20w',
-        type: 'bar',
-        itemStyle: {
-          normal: {
-            color: variablesColors.secondary,
-            label: {
-              show: true,
-              textStyle: {
-                color: '#E87C25'
-              }
-            }
-          }
+        {
+          name: "ECharts1 - 2w",
+          type: "bar",
+          xAxisIndex: 1,
+          itemStyle: {
+            normal: {
+              // color: variablesColors.primary,
+              label: {
+                show: true,
+              },
+            },
+          },
+          data: [491, 2035, 389, 955, 347],
         },
-        data: [906, 911, 908, 778, 0]
-      }, {
-        name: 'ECharts1 - 2k',
-        type: 'bar',
-        xAxisIndex: 1,
-        itemStyle: {
-          normal: {
-            color: variablesColors.secondary,
-            label: {
-              show: true,
-              formatter: function (p) {
-                return p.value > 0 ? p.value + '\n' : ''
-              }
-            }
-          }
+        {
+          name: "ECharts1 - 20w",
+          type: "bar",
+          xAxisIndex: 1,
+          itemStyle: {
+            normal: {
+              // color: variablesColors.secondary,
+              label: {
+                show: true,
+                formatter: function (p) {
+                  return p.value > 0 ? p.value + "+" : "";
+                },
+              },
+            },
+          },
+          data: [3000, 3000, 2817, 3000, 0],
         },
-        data: [96, 224, 164, 124, 0]
-      }, {
-        name: 'ECharts1 - 2w',
-        type: 'bar',
-        xAxisIndex: 1,
-        itemStyle: {
-          normal: {
-            color: variablesColors.primary,
-            label: {
-              show: true
-            }
-          }
-        },
-        data: [491, 2035, 389, 955, 347]
-      }, {
-        name: 'ECharts1 - 20w',
-        type: 'bar',
-        xAxisIndex: 1,
-        itemStyle: {
-          normal: {
-            color: variablesColors.secondary,
-            label: {
-              show: true,
-              formatter: function (p) {
-                return p.value > 0 ? p.value + '+' : ''
-              }
-            }
-          }
-        },
-        data: [3000, 3000, 2817, 3000, 0]
-      }]
-    }
+      ],
+    };
     return {
-      options: option
-    }
+      options: option,
+    };
   },
 
-  methods: {}
-}
-
+  methods: {},
+};
 </script>
-
 
 <style lang="scss" scoped>
 .echarts {
@@ -216,7 +233,4 @@ export default {
     border-bottom: 2px solid #fff;
   }
 }
-
 </style>
-
-

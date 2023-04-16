@@ -45,7 +45,7 @@
 }
 .stylish-table thead th {
   font-weight: 400;
-  color: var(--theme1);
+  // color: var(--theme1);
   border: 0px;
   border-bottom: 1px;
 }
@@ -53,7 +53,7 @@
 .table thead th {
   vertical-align: bottom;
   padding: 1.3rem 0.75rem;
-  border-bottom: 0px solid var(--theme-border-color);
+  border-bottom: 0px solid #000000;
 }
 .table td,
 .table th {

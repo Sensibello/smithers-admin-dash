@@ -99,7 +99,7 @@ export default {
 
 
 <style lang="scss">
-@import "~@@/client/styles/variables/base/_default-skin.scss";
+// @import "~@@/client/styles/variables/base/_default-skin.scss";
 @import "~@@/client/styles/variables/base/all.scss";
 
 $ease-out: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
@@ -109,7 +109,7 @@ $ease-out: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
   justify-content: space-between;
   align-items: center;
   padding-top: 4px;
-  border-top: 1px solid var(--theme1-mixed);
+  // border-top: 1px solid var(--theme1-mixed);
 
   .ig-date {
     font-weight: 500;

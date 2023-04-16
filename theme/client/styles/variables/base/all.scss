@@ -35,17 +35,17 @@ $theme-colors: (
   danger: $danger,
   light: $light,
   dark: $dark,
-  theme1inv: $theme1inv,
+  // theme1inv: $theme1inv,
   // Inverse colors: Used as background color
-    theme2inv: $theme2inv,
-  theme3inv: $theme3inv,
-  theme1: $theme1,
+  // theme2inv: $theme2inv,
+  // theme3inv: $theme3inv,
+  // theme1: $theme1,
   // Textual colors
-    theme2: $theme2,
-  theme3: $theme3
+  // theme2: $theme2,
+  // theme3: $theme3,,,,,,,,,,,,,,
 );
 
-$chartPallete: $primary, $secondary, $theme1, $theme2, $theme3;
+$chartPallete: $primary, $secondary;
 
 //
 
@@ -62,7 +62,7 @@ $colors: (
   cyan: $cyan,
   white: $white,
   gray: $gray-600,
-  gray-dark: $gray-800
+  gray-dark: $gray-800,
 );
 $theme-color-interval: 8%;
 
@@ -71,24 +71,24 @@ $spacer: 1rem;
 $spacers: (
   0: 0,
   1: (
-    $spacer * 0.25
+    $spacer * 0.25,
   ),
   2: (
-    $spacer * 0.5
+    $spacer * 0.5,
   ),
   3: $spacer,
   4: (
-    $spacer * 1.5
+    $spacer * 1.5,
   ),
   5: (
-    $spacer * 3
-  )
+    $spacer * 3,
+  ),
 );
 $sizes: (
   25: 25%,
   50: 50%,
   75: 75%,
-  100: 100%
+  100: 100%,
 );
 
 // Options
@@ -101,12 +101,12 @@ $enable-grid-classes: true;
 $enable-print-styles: true;
 
 // Body
-$body-bg: $theme1inv;
+// $body-bg: $theme1inv;
 $body-color: $gray-900 !default;
 
 // Links
-$link-color: lighten($theme1, 10%);
-$link-hover-color: lighten($theme1, 20%);
+$link-color: lighten($primary, 10%);
+$link-hover-color: lighten($primary, 20%);
 $link-decoration: none;
 $link-hover-decoration: none;
 
@@ -116,14 +116,14 @@ $grid-breakpoints: (
   sm: 576px,
   md: 768px,
   lg: 992px,
-  xl: 1380px
+  xl: 1380px,
 );
 
 $container-max-widths: (
   sm: 540px,
   md: 720px,
   lg: 960px,
-  xl: 1380px
+  xl: 1380px,
 );
 $grid-columns: 12;
 $grid-gutter-width: 30px;
@@ -135,10 +135,10 @@ $border-width: 1px;
 $border-radius: $theme-border-radius;
 $border-radius-lg: $theme-border-radius;
 $border-radius-sm: 2px;
-$component-active-color: theme-color("primary");
-$component-active-bg: var(
-  --theme1-mixed
-); //lighten(theme-color("primary"), 55%);
+// $component-active-color: theme-color("primary");
+// $component-active-bg: var(
+//   --theme1-mixed
+// ); //lighten(theme-color("primary"), 55%);
 $caret-width: 0.3em;
 $transition-base: all 0.2s ease-in-out;
 $transition-fade: opacity 0.15s linear;
@@ -223,12 +223,12 @@ $input-disabled-bg: $gray-200;
 $input-color: $gray-700;
 $input-border-color: rgba($black, 0.15);
 $input-btn-border-width: $border-width;
-$input-box-shadow: $themeShadow3; //inset 0 1px 1px rgba($black, 0.075);
+$input-box-shadow: inset 0 1px 1px rgba($black, 0.075);
 $input-border-radius: $border-radius;
 $input-border-radius-lg: $border-radius-lg;
 $input-border-radius-sm: $border-radius-sm;
 $input-focus-bg: $input-bg;
-$input-focus-border-color: lighten(theme-color("secondary"), 25%);
+$input-focus-border-color: lighten($secondary, 25%);
 $input-focus-box-shadow: $input-box-shadow, $btn-focus-box-shadow;
 $input-focus-color: $input-color;
 $input-placeholder-color: $gray-600;
@@ -324,8 +324,8 @@ $dropdown-box-shadow: $themeShadow1;
 $dropdown-link-color: $gray-900;
 $dropdown-link-hover-color: darken($gray-900, 5%);
 $dropdown-link-hover-bg: $gray-100 !default;
-$dropdown-link-active-color: $component-active-color;
-$dropdown-link-active-bg: $component-active-bg;
+// $dropdown-link-active-color: $component-active-color;
+// $dropdown-link-active-bg: $component-active-bg;
 $dropdown-link-disabled-color: $gray-600;
 $dropdown-item-padding-y: 0.8rem;
 $dropdown-item-padding-x: 1.5rem;
@@ -343,8 +343,8 @@ $nav-tabs-link-active-color: $gray-700;
 $nav-tabs-link-active-bg: $body-bg;
 $nav-tabs-link-active-border-color: #ddd;
 $nav-pills-border-radius: $border-radius;
-$nav-pills-link-active-color: $component-active-color;
-$nav-pills-link-active-bg: $component-active-bg;
+// $nav-pills-link-active-color: $component-active-color;
+// $nav-pills-link-active-bg: $component-active-bg;
 
 // Navbar
 $navbar-padding-y: ($spacer / 2);
@@ -533,8 +533,8 @@ $list-group-border-radius: $border-radius;
 $list-group-item-padding-y: 0.75rem;
 $list-group-item-padding-x: 1.25rem;
 $list-group-hover-bg: $gray-100;
-$list-group-active-color: $component-active-color;
-$list-group-active-bg: $component-active-bg;
+// $list-group-active-color: $component-active-color;
+// $list-group-active-bg: $component-active-bg;
 $list-group-active-border-color: $list-group-active-bg;
 $list-group-disabled-color: $gray-600;
 $list-group-disabled-bg: $list-group-bg;
@@ -588,12 +588,19 @@ $close-text-shadow: 0 1px 0 $white;
 $code-font-size: 90%;
 $code-padding-y: 0.2rem;
 $code-padding-x: 0.4rem;
-$code-color: $theme1;
+$code-color: #ff0000;
 $code-bg: $gray-100;
 $kbd-color: $white;
 $kbd-bg: $gray-900;
 $pre-color: $gray-900;
 $pre-scrollable-max-height: 340px;
+
+// replacing theme
+$theme-color-mixed-color: #fff;
+$theme-color-mixed-percent: 7%;
+$theme-color-mixed-percent-1: 35%;
+$theme-color-mixed-opacity: 0.85;
+$theme-color-darkness-percent: 5%;
 
 :export {
   primary: $primary;
@@ -604,12 +611,12 @@ $pre-scrollable-max-height: 340px;
   danger: $danger;
   light: $light;
   dark: $dark;
-  theme1inv: $theme1inv;
-  theme2inv: $theme2inv;
-  theme3inv: $theme3inv;
-  theme1: $theme1;
-  theme2: $theme2;
-  theme3: $theme3;
+  // theme1inv: $theme1inv;
+  // theme2inv: $theme2inv;
+  // theme3inv: $theme3inv;
+  // theme1: $theme1;
+  // theme2: $theme2;
+  // theme3: $theme3;
   chartPallete: $chartPallete;
   xs: map-get($breakpoints, xs);
   sm: map-get($breakpoints, sm);

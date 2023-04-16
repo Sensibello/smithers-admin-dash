@@ -1,24 +1,24 @@
-@each $color in $theme-colors {
-  .badge-#{nth($color,1)}.inverse {
-    @if lightness(nth($color, 2)) < $theme-color-darkness-percent {
-      background-color: mix(
-        nth($color, 2),
-        white,
-        $theme-color-mixed-percent
-      ) !important; //lighten(nth($color, 2), 55%);
+// @each $color in $theme-colors {
+//   .badge-#{nth($color,1)}.inverse {
+//     @if lightness(nth($color, 2)) < $theme-color-darkness-percent {
+//       background-color: mix(
+//         nth($color, 2),
+//         white,
+//         $theme-color-mixed-percent
+//       ) !important; //lighten(nth($color, 2), 55%);
 
-      color: nth($color, 2) !important;
-    } @else {
-      background-color: mix(
-        nth($color, 2),
-        $theme1inv,
-        $theme-color-mixed-percent-1
-      ) !important; //lighten(nth($color, 2), 55%);
+//       color: nth($color, 2) !important;
+//     } @else {
+//       background-color: mix(
+//         nth($color, 2),
+//         $theme1inv,
+//         $theme-color-mixed-percent-1
+//       ) !important; //lighten(nth($color, 2), 55%);
 
-      color: lighten(nth($color, 2), 5%) !important;
-    }
-  }
-}
+//       color: lighten(nth($color, 2), 5%) !important;
+//     }
+//   }
+// }
 
 //Same as btn-sm
 .ig-badge {

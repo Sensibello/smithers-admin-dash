@@ -1,19 +1,18 @@
 <template>
-	<admin-layout :collapsed="false"  :compacted="false"/>
+  <admin-layout :collapsed="false" :compacted="false" />
 </template>
 
 <script>
-import adminLayout from './__admin.vue'
+import adminLayout from "./__admin.vue";
 
 export default {
   components: { adminLayout },
-  head () {
+  head() {
     return {
       bodyAttrs: {
-        class: 'context-right skin-' + this.$store.state.theme.skin
-      }
-    }
+        class: "context-right ",
+      },
+    };
   },
-}
+};
 </script>
-

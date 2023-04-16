@@ -1,151 +1,178 @@
-
 <template>
-<wrapper-echarts :options="options"> </wrapper-echarts>
+  <wrapper-echarts :options="options"> </wrapper-echarts>
 </template>
 <script>
-import variablesColors from '@@/client/styles/variables/base/_default-skin.scss'
-import WrapperEcharts from '@/components/Module/Chart/Echarts/WrapperEcharts'
-import defaultPropsMixin from '@@/client/util/chart/defaultPropsMixin'
+// import variablesColors from "@@/client/styles/variables/base/_default-skin.scss";
+import WrapperEcharts from "@/components/Module/Chart/Echarts/WrapperEcharts";
+import defaultPropsMixin from "@@/client/util/chart/defaultPropsMixin";
 
 /*
 Example of component for rendering the bar chart of the echarts library
 */
 export default {
   components: {
-    WrapperEcharts
+    WrapperEcharts,
   },
 
-  mounted () {},
+  mounted() {},
 
   mixins: [defaultPropsMixin],
 
-  data () {
+  data() {
     let option = {
       title: {
         text: this.title,
-        subtext: this.subtitle
+        subtext: this.subtitle,
       },
       tooltip: {
         show: true,
-        trigger: 'item'
+        trigger: "item",
       },
       legend: {
-        data: ['Cat. A', 'Cat. B', 'Cat. C', 'Cat. D']
+        data: ["Cat. A", "Cat. B", "Cat. C", "Cat. D"],
       },
       toolbox: {
         show: false,
         feature: {
           mark: {
-            show: true
+            show: true,
           },
           dataView: {
             show: true,
-            readOnly: false
+            readOnly: false,
           },
           magicType: {
             show: true,
-            type: ['line', 'bar', 'stack', 'tiled']
+            type: ["line", "bar", "stack", "tiled"],
           },
           restore: {
-            show: true
+            show: true,
           },
           saveAsImage: {
-            show: true
-          }
-        }
+            show: true,
+          },
+        },
       },
       calculable: true,
-      xAxis: [{
-        type: 'category',
-        data: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
-      }],
-      yAxis: [{
-        type: 'value'
-      }],
-      series: [{
-        name: 'Cat. A',
-        type: 'bar',
-        itemStyle: {
-          // 系列级个性化样式，纵向渐变填充
-          emphasis: {
-            label: {
-              show: true,
-              position: 'top',
-              formatter: '{a} {b} {c}',
-              textStyle: {
-                color: variablesColors.theme1
-              }
-            }
-          }
+      xAxis: [
+        {
+          type: "category",
+          data: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
         },
-        data: [220, 232, 101, 234, 190, 330, 210]
-      }, {
-        name: 'Cat. B',
-        type: 'bar',
-        stack: 'T. Amount',
-        data: [120, '-', 451, 134, 190, 230, 110]
-      }, {
-        name: 'Cat. C',
-        type: 'bar',
-        stack: 'T. Amount',
-        itemStyle: {// 系列级个性化
+      ],
+      yAxis: [
+        {
+          type: "value",
         },
-        data: [320, 332, 100, 334, {
-          value: 390,
-          symbolSize: 10,
-          // 数据级个性化
-          itemStyle: {}
-        }, 330, 320]
-      }, {
-        name: 'Cat. D',
-        type: 'bar',
-        barWidth: 40,
-        // 系列级个性化，柱形宽度
-        itemStyle: {
-          normal: {
-            // 系列级个性化，横向渐变填充
-            borderRadius: 5,
-            label: {
-              show: true,
-              textStyle: {
-                fontSize: '20',
-                fontWeight: 'bold'
-              }
-            }
-          }
+      ],
+      series: [
+        {
+          name: "Cat. A",
+          type: "bar",
+          itemStyle: {
+            // 系列级个性化样式，纵向渐变填充
+            emphasis: {
+              label: {
+                show: true,
+                position: "top",
+                formatter: "{a} {b} {c}",
+                textStyle: {
+                  // color: variablesColors.theme1,
+                },
+              },
+            },
+          },
+          data: [220, 232, 101, 234, 190, 330, 210],
         },
-        data: [620, 732, {
-          value: 701,
+        {
+          name: "Cat. B",
+          type: "bar",
+          stack: "T. Amount",
+          data: [120, "-", 451, 134, 190, 230, 110],
+        },
+        {
+          name: "Cat. C",
+          type: "bar",
+          stack: "T. Amount",
+          itemStyle: {
+            // 系列级个性化
+          },
+          data: [
+            320,
+            332,
+            100,
+            334,
+            {
+              value: 390,
+              symbolSize: 10,
+              // 数据级个性化
+              itemStyle: {},
+            },
+            330,
+            320,
+          ],
+        },
+        {
+          name: "Cat. D",
+          type: "bar",
+          barWidth: 40,
+          // 系列级个性化，柱形宽度
           itemStyle: {
             normal: {
+              // 系列级个性化，横向渐变填充
+              borderRadius: 5,
               label: {
-                position: 'inside'
-              }
-            }
-          }
-        }, 734, 890, 930, 820],
-        markLine: {
-          data: [{
-            type: 'average',
-            name: 'Average'
-          }, {
-            type: 'max'
-          }, {
-            type: 'min'
-          }]
-        }
-      }]
-    }
+                show: true,
+                textStyle: {
+                  fontSize: "20",
+                  fontWeight: "bold",
+                },
+              },
+            },
+          },
+          data: [
+            620,
+            732,
+            {
+              value: 701,
+              itemStyle: {
+                normal: {
+                  label: {
+                    position: "inside",
+                  },
+                },
+              },
+            },
+            734,
+            890,
+            930,
+            820,
+          ],
+          markLine: {
+            data: [
+              {
+                type: "average",
+                name: "Average",
+              },
+              {
+                type: "max",
+              },
+              {
+                type: "min",
+              },
+            ],
+          },
+        },
+      ],
+    };
     return {
-      options: option
-    }
+      options: option,
+    };
   },
 
-  methods: {}
-}
-
+  methods: {},
+};
 </script>
-
 
 <style lang="scss" scoped>
 .echarts {
@@ -179,7 +206,4 @@ export default {
     border-bottom: 2px solid #fff;
   }
 }
-
 </style>
-
-

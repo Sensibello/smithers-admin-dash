@@ -11,7 +11,7 @@
   }
 
   &.ig-header-bg-on-scroll header.ig-main-header {
-    background-color: $theme-navtop-bg;
+    // background-color: $theme-navtop-bg;
   }
 
   .extended-nav-top {
@@ -58,7 +58,7 @@ header.ig-main-header {
   .extra-item div > button.btn.dropdown-item,
   a.dropdown-item {
     padding: 11px 30px !important;
-    color: $theme-navtop-item-color;
+    // color: $theme-navtop-item-color;
     display: flex;
     align-items: center;
   }
@@ -67,7 +67,7 @@ header.ig-main-header {
     padding: 0;
   }
   .navbar-light .navbar-nav .nav-link.active {
-    color: var(--theme1);
+    color: $primary;
   }
 
   .scroll-dropdown {
@@ -111,24 +111,24 @@ header.ig-main-header {
       padding: 11px 30px !important;
 
       .item-title {
-        color: $theme-navtop-item-color;
+        // color: $theme-navtop-item-color;
       }
     }
 
     .item-title {
-      color: $theme-navtop-item-color;
+      // color: $theme-navtop-item-color;
     }
   }
 
   .item-title {
     font-size: $theme-navbar-font-size;
-    color: $theme-navtop-color;
+    // color: $theme-navtop-color;
     font-weight: 500;
     display: flex;
     align-items: center;
 
     .nav-link {
-      color: $theme-navtop-item-color;
+      // color: $theme-navtop-item-color;
       padding: 11px 30px;
     }
 
@@ -140,7 +140,7 @@ header.ig-main-header {
   }
 
   .text-navtop {
-    color: $theme-navtop-color;
+    // color: $theme-navtop-color;
 
     &:not(i) {
       font-weight: 600;

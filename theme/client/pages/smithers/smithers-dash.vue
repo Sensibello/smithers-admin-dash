@@ -146,7 +146,7 @@
   </div>
 </template>
 <script>
-import themeColors from "@@/client/util/theme/themeColors.js";
+// import themeColors from "@@/client/util/theme/themeColors.js";
 // import LastSale from '@/components/Module/Sale/Widget/LastSale'
 import WinTable from "@/components/Module/Heatmap/WinTable";
 import CapacityRevenueTable from "@/components/Module/Heatmap/CapacityRevenueTable";
@@ -293,9 +293,9 @@ export default {
     };
   },
   computed: {
-    variables() {
-      return themeColors(this.$store.state.theme.skin);
-    },
+    // variables() {
+    //   return themeColors(this.$store.state.theme.skin);
+    // },
     stateNew() {
       return this.ohio.map((mon) => mon.data.new);
     },

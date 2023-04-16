@@ -1,17 +1,28 @@
 $borderColor: #dddddd;
+$default-background-color: #ffffff;
+$default-foreground-color: #202020;
+$theme-menu-compacted-width: 145px;
+$theme-menu-icon-width: 100px;
+$theme-menu-width: 240px;
+$theme-context-width: 240px;
+$theme-context-width-lg: 190px;
+$theme-context-width-sm: 100%;
 
-// Side menu is continuos
+$theme-header-height: 85px;
+$theme-header-space: 40px; //Padding on header, separator content and header
+
+$theme-header-height-extended: 150px;
 
 .side-continuous {
   .v-sidebar-menu {
     .vsm-main-logo {
-      background-color: $theme-side-logo-bg;
+      background-color: $default-background-color;
       .icon,
       .text2 {
-        color: $theme-side-logo-color;
+        color: $default-foreground-color;
       }
       .text1 {
-        color: $theme-side-logo-color2;
+        color: $default-foreground-color;
       }
     }
   }
@@ -26,17 +37,17 @@ $borderColor: #dddddd;
   .vsm-main-logo {
     height: $theme-header-height;
     width: 100%;
-    background-color: $theme1inv;
+    background-color: $default-background-color;
     display: flex;
     justify-content: center;
     border-radius: 0 $theme-side-radius 0 0;
 
     .icon,
     .text2 {
-      color: $theme1//$primary;
+      color: $default-foreground-color;
     }
     .text1 {
-      color: $theme1;
+      color: $default-foreground-color;
     }
   }
 
@@ -112,11 +123,7 @@ $borderColor: #dddddd;
   & .vsm-item.active-item,
   .vsm-item.parent-active-item {
     & > .vsm-link {
-      color: contrast(
-        $theme1,
-        lighten($theme1, 40%),
-        darken($theme1, 40%)
-      ); ///darken($theme1, 30%);
+      color: contrast($theme1, lighten($theme1, 40%), darken($theme1, 40%));
     }
   }
   // Only compacted version
@@ -258,7 +265,7 @@ $borderColor: #dddddd;
     cursor: pointer;
     border: none;
     width: 100%;
-    border-radius: 0 0 $theme-side-radius $theme-side-radius;
+    border-radius: 0 0 5px 5px;
     &:after {
       content: "/e88b";
       font-family: "Font Awesome 5 Free";
@@ -268,7 +275,7 @@ $borderColor: #dddddd;
 
 .v-sidebar-menu {
   background-color: $baseBg;
-  border-radius: 0 $theme-side-radius $theme-side-radius 0;
+  border-radius: 0 5px 5px 0;
 
   & .vsm-link {
     color: $itemColor;
@@ -302,18 +309,9 @@ $borderColor: #dddddd;
     }
   }
   &.vsm-default {
-    & .vsm-item.first-item {
-      &.open-item > .vsm-link {
-        //background-color: $itemOpenBg;
-        & > .vsm-icon {
-          //color: $theme3;
-          //background-color: transparent;
-        }
-      }
-    }
     & .vsm-link:hover {
-      color: $itemHoverColor;
-      background-color: $itemHoverBg;
+      // color: $itemHoverColor;
+      // background-color: $itemHoverBg;
     }
 
     &:not(.vsm-compacted) .vsm-list {
@@ -357,7 +355,7 @@ $borderColor: #dddddd;
 
   .vsm-list {
     height: calc(100% - #{$theme-header-height} - 50px);
-    border-radius: 0 0 $theme-side-radius 0;
+    border-radius: 0 0 5px 0;
   }
 
   &.vsm-default .vsm-item.first-item.open-item > .vsm-link {
@@ -365,15 +363,12 @@ $borderColor: #dddddd;
   }
 
   &.vsm-default .vsm-item.first-item.open-item > .vsm-link {
-    & > .vsm-icon {
-      // color: $theme3;
-    }
     & > .vsm-title {
     }
   }
 
   .vsm-mobile-bg {
-    background-color: $theme-side-bg;
+    background-color: $default-background-color;
   }
 
   .vsm-item.mobile-item > .vsm-link {
@@ -393,7 +388,7 @@ $borderColor: #dddddd;
 
   .vsm-icon {
     font-size: 17px;
-    color: $theme-side-color;
+    color: $default-foreground-color;
 
     //fix size for typecn icon
     &.typcn {
@@ -482,13 +477,11 @@ $borderColor: #dddddd;
       font-weight: 700;
       right: 10px;
       top: 50%;
-      color: rgba($theme-side-color, 0.7);
+      color: rgba($default-foreground-color, 0.7);
       width: 14px;
-      //transform: rotate(-90deg);
     }
 
     .vsm-badge {
-      //right: -25px;
       top: 15px;
       height: 12px;
       line-height: 12px;
@@ -522,9 +515,7 @@ $borderColor: #dddddd;
           opacity: 0.5;
           font-size: 13px;
           line-height: 13px;
-          //margin-right: 10px;
-          //transform: rotate(90deg);
-          color: $theme-side-color;
+          color: $default-foreground-color;
 
           &.vsm-arrow {
             transform: translateY(-50%) rotate(90deg);
@@ -552,9 +543,9 @@ $borderColor: #dddddd;
     font-weight: 600;
     text-align: center;
     text-transform: uppercase;
-    color: $theme-side-color;
-    border-bottom: 1px solid $borderColor;
-    background-color: $theme-side-bg;
+    color: $default-foreground-color;
+    border-bottom: 1px solid $default-foreground-color;
+    background-color: $default-background-color;
     padding-top: 2px;
     opacity: 0.9;
   }
@@ -562,7 +553,6 @@ $borderColor: #dddddd;
 
 .v-sidebar-menu .vsm-item.first-item.active-item > .vsm-link,
 .v-sidebar-menu .vsm-item.first-item.parent-active-item > .vsm-link {
-  //background-color: $theme-side-bg;
   box-shadow: none;
 }
 

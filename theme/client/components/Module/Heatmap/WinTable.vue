@@ -249,6 +249,6 @@ export default {
 }
 
 tfoot th {
-  color: var(--theme1-mixed-1);
+  // color: var(--theme1-mixed-1);
 }
 </style>

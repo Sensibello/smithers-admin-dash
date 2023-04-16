@@ -1,10 +1,8 @@
 @import "./mixin/_color";
-// changed this to turn off the blue theme by default
-@import "./variables/skin/_color-custom";
-// @import "./variables/skin/_default";
+// @import "./variables/skin/_color-custom";
 @import "./variables/base/all";
 @import "~bootstrap/scss/bootstrap";
-@import "./variables/base/_sidemenu.scss";
+// @import "./variables/base/_sidemenu.scss";
 @import "./_background.scss";
 @import "./_badge.scss";
 @import "./_body.scss";
@@ -22,20 +20,23 @@
 @import "./_header.scss";
 @import "./_navbar.scss";
 @import "./_opacity.scss";
+// @import "./_root.scss";
 @import "./_round.scss";
 @import "./_scrollbar.scss";
 @import "./_section.scss";
-@import "./_sidemenu.scss";
+// @import "./_sidemenu.scss";
 @import "./_sidecontextmenu.scss";
 @import "./_spacing.scss";
 @import "./_table.scss";
-@import "./_text.scss";
-@import "./_root.scss";
+// @import "./_text.scss";
 @import "./_widget.scss";
 
-@import "./third/_echarts.scss";
-@import "./third/_vue-editor.scss";
-
+.echarts {
+  width: 100% !important;
+}
+.ql-toolbar {
+  background-color: #fff;
+}
 :root {
   // @include generate-root-colors();
 }

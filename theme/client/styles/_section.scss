@@ -1,5 +1,8 @@
 @import "./mixin/_breakpoint.scss";
-
+$default-background-color: #ffffff;
+$default-foreground-color: #202020;
+$themeShadow1: #888888;
+$theme-border-radius: 5px;
 .ig-grid-view {
   .ig-grid-row {
     display: flex;
@@ -21,7 +24,7 @@
         box-shadow: $themeShadow1; //-6px 6px 20px -10px rgba(0, 0, 0, 0.34), inset 0px 0px 2px 1px rgba(255, 255, 255, 0.4) !important
         position: relative;
         border-radius: $theme-border-radius;
-        background-color: $theme1inv;
+        background-color: $default-background-color;
         padding: 1.7rem 1.4rem;
       }
     }
@@ -101,7 +104,7 @@
 
 main > div > section:not(.no-bg),
 .section-page {
-  background-color: $theme1inv;
+  background-color: $default-background-color;
   padding: 10px 25px;
   box-shadow: $themeShadow1; //-6px 6px 20px -10px rgba(0, 0, 0, 0.34), inset 0px 0px 2px 1px rgba(255, 255, 255, 0.4) !important
   position: relative;

@@ -9,7 +9,6 @@
   </wrapper-echarts>
 </template>
 <script>
-import themeColors from "@@/client/util/theme/themeColors.js";
 import WrapperEcharts from "@/components/Module/Chart/Echarts/WrapperEcharts";
 import defaultPropsMixin from "@@/client/util/chart/defaultPropsMixin";
 
@@ -115,7 +114,7 @@ export default {
     },
 
     options() {
-      const variablesColors = themeColors(this.$store.state.theme.skin);
+      // const variablesColors = themeColors(this.$store.state.theme.skin);
       const barMaxWidth = "25%";
       const barBorderRadius = [3, 3, 0, 0];
       let option = {

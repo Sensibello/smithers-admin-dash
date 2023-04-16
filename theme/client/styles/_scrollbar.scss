@@ -1,3 +1,8 @@
+$primary: #00ffff;
+$secondary: #ff00ff;
+$default-background-color: #ffffff;
+$default-foreground-color: #202020;
+
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -25,7 +30,7 @@
     background: transparent; //darken($theme-side-bg, 10%);
   }
   &::-webkit-scrollbar-thumb {
-    background: var(--primary-mixed); //lighten($secondary, 10%);
+    background: lighten($secondary, 10%);
     border: 10px solid rgba(255, 255, 255, 0);
     //Cut bg after border applied
     background-clip: padding-box;
@@ -33,7 +38,7 @@
 
   &:hover {
     &::-webkit-scrollbar-thumb {
-      background: var(--primary-mixed-1); //lighten($secondary, 10%);
+      background: lighten($secondary, 10%);
       background-clip: padding-box;
     }
   }
@@ -47,7 +52,7 @@
   }
 
   &::-webkit-scrollbar-thumb {
-    background: mix($primary, $theme1inv, 10%);
+    background: mix($primary, $default-background-color, 10%);
     border: 10px solid rgba(255, 255, 255, 0);
     //Cut bg after border applied
     background-clip: padding-box;
@@ -55,7 +60,7 @@
 
   &:hover {
     &::-webkit-scrollbar-thumb {
-      background: mix($primary, $theme1inv, 30%);
+      background: mix($primary, $default-background-color, 30%);
       background-clip: padding-box;
     }
   }
@@ -63,7 +68,7 @@
 
 .small-scroll.ghost {
   &::-webkit-scrollbar-track {
-    background: $theme-side-scroll-color;
+    background: $default-background-color;
   }
   &::-webkit-scrollbar-thumb {
     background: transparent; //var(--primary); //lighten($secondary, 10%);
@@ -74,8 +79,8 @@
   &:hover {
     &::-webkit-scrollbar-thumb {
       background: mix(
-        $theme-side-scroll-color,
-        $theme1inv,
+        $default-background-color,
+        $primary,
         80%
       ); //lighten($secondary, 10%);
       background-clip: padding-box;
@@ -95,7 +100,7 @@
 
   &:hover {
     &::-webkit-scrollbar-thumb {
-      background: mix($primary, $theme1inv, 30%);
+      background: mix($primary, $default-background-color, 30%);
       background-clip: padding-box;
     }
   }
@@ -103,19 +108,19 @@
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: $theme1inv;
+  background: $default-background-color;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: var(--theme1-mixed-1);
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb:active {
-  background: var(--theme1-mixed-1);
+  background: transparent;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--theme1-mixed-1); // $primary;
+  background: transparent; // $primary;
 }

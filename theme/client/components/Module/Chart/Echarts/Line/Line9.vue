@@ -1,136 +1,144 @@
-
 <template>
-<wrapper-echarts :height="height"
-    :options="options"> </wrapper-echarts>
+  <wrapper-echarts :height="height" :options="options"> </wrapper-echarts>
 </template>
 <script>
-import themeColors from '@@/client/util/theme/themeColors.js'
-import variablesColors from '@@/client/styles/variables/base/_default-skin.scss'
-import WrapperEcharts from '@/components/Module/Chart/Echarts/WrapperEcharts'
-import defaultPropsMixin from '@@/client/util/chart/defaultPropsMixin'
+import themeColors from "@@/client/util/theme/themeColors.js";
+// import variablesColors from "@@/client/styles/variables/base/_default-skin.scss";
+import WrapperEcharts from "@/components/Module/Chart/Echarts/WrapperEcharts";
+import defaultPropsMixin from "@@/client/util/chart/defaultPropsMixin";
 
-let cache = new Map()
+let cache = new Map();
 
 /*
 Example of component for rendering pie chart of the echarts library
 */
 export default {
   components: {
-    WrapperEcharts
+    WrapperEcharts,
   },
   mixins: [defaultPropsMixin],
 
-  props: { variant: { type: String, default: 'primary' } },
+  props: { variant: { type: String, default: "primary" } },
 
-  data () {
-    return { symbolData: 'circle' }
+  data() {
+    return { symbolData: "circle" };
   },
 
   computed: {
-    options () {
-      const variablesColors = themeColors(this.$store.state.theme.skin)
-      const areaOpacity = 1.0
-      const lineWidth = 2
-      const symbolSize = 0
-      const mixed = 'mixed-1'
-      const mixedArea = 'mixed'
+    options() {
+      // const variablesColors = themeColors(this.$store.state.theme.skin);
+      const areaOpacity = 1.0;
+      const lineWidth = 2;
+      const symbolSize = 0;
+      const mixed = "mixed-1";
+      const mixedArea = "mixed";
 
       let option = {
         color: [],
         tooltip: {
-          trigger: 'axis',
+          trigger: "axis",
           axisPointer: {
-            type: 'cross',
+            type: "cross",
             label: {
-              backgroundColor: '#6a7985'
-            }
-          }
+              backgroundColor: "#6a7985",
+            },
+          },
         },
         legend: {
           show: false,
-          data: ['E. Marketing', 'Adversing', 'Video Ad', 'D. Inter.', 'S. Engine']
+          data: [
+            "E. Marketing",
+            "Adversing",
+            "Video Ad",
+            "D. Inter.",
+            "S. Engine",
+          ],
         },
         toolbox: {
-          show: false
+          show: false,
         },
         label: {
-          show: false
+          show: false,
         },
         grid: {
           top: 20,
           left: 0,
           right: 0,
-          bottom: 0
+          bottom: 0,
         },
         xAxis: [
           {
-            type: 'category',
+            type: "category",
             boundaryGap: false,
             // data: ['Mon', 'Tue', 'Wed', 'Tue', 'Fri', 'Sat', 'Sun'],
             show: false,
 
-            axisLabel: { show: false }
-          }
+            axisLabel: { show: false },
+          },
         ],
         yAxis: [
           {
-            type: 'value',
-            show: false
-          }
+            type: "value",
+            show: false,
+          },
         ],
         series: [
-
           {
-            name: 'S. Engine',
-            type: 'bar',
+            name: "S. Engine",
+            type: "bar",
             // symbol: this.symbolData,
             symbolSize: symbolSize,
-            itemStyle: { color: variablesColors[this.variant] },
+            // itemStyle: { color: variablesColors[this.variant] },
 
             barMaxWidth: 15,
-            barCategoryGap: '80%',
+            barCategoryGap: "80%",
 
             areaStyle: {
               opacity: areaOpacity,
-              color: variablesColors.variantsObj[this.variant][mixedArea]
+              // color: variablesColors.variantsObj[this.variant][mixedArea],
             },
             lineStyle: {
               width: lineWidth,
-              color: variablesColors.variantsObj[this.variant][mixed]
+              // color: variablesColors.variantsObj[this.variant][mixed],
             },
-            data: [ 932, 901, 934, 1290, 1330, 1320, 820, 932, 901, 934, 1290, 932, 901, 934, 1290, 1330, 1320, 820, 932, 901, 934, 1290, 1330, 1320 ]
-          }
-        ]
-      }
+            data: [
+              932, 901, 934, 1290, 1330, 1320, 820, 932, 901, 934, 1290, 932,
+              901, 934, 1290, 1330, 1320, 820, 932, 901, 934, 1290, 1330, 1320,
+            ],
+          },
+        ],
+      };
 
-      return option
-    }
+      return option;
+    },
   },
-  created () {
-
-  },
+  created() {},
 
   methods: {
     // Change default SVG icon color
-    fixColor (strSvg) {
-      let newSvg = strSvg
-      newSvg = this.replaceAll(newSvg, '#FF6E6E', variablesColors.variantsObj[this.variant]['mixed-1'])
-      newSvg = this.replaceAll(newSvg, '#0C0058', variablesColors.variantsObj[this.variant]['base'])
-      newSvg = this.replaceAll(newSvg, '#FFFFFF', variablesColors.theme1inv)
+    fixColor(strSvg) {
+      let newSvg = strSvg;
+      newSvg = this.replaceAll(
+        newSvg,
+        "#FF6E6E"
+        // variablesColors.variantsObj[this.variant]["mixed-1"]
+      );
+      newSvg = this.replaceAll(
+        newSvg,
+        "#0C0058",
+        variablesColors.variantsObj[this.variant]["base"]
+      );
+      // newSvg = this.replaceAll(newSvg, "#FFFFFF", variablesColors.theme1inv);
 
-      return newSvg
+      return newSvg;
     },
     // Replace all function
-    replaceAll (str, find, replace) {
-      return str.replace(new RegExp(find, 'g'), replace)
-    }
-
-  }
-
-}
-
+    replaceAll(str, find, replace) {
+      return str.replace(new RegExp(find, "g"), replace);
+    },
+  },
+};
 </script>
-
 
 <style lang="scss" scoped>
 .echarts {
@@ -164,7 +172,4 @@ export default {
     border-bottom: 2px solid #fff;
   }
 }
-
 </style>
-
-

@@ -8,7 +8,6 @@
   </wrapper-echarts>
 </template>
 <script>
-import themeColors from "@@/client/util/theme/themeColors.js";
 import WrapperEcharts from "@/components/Module/Chart/Echarts/WrapperEcharts";
 import defaultPropsMixin from "@@/client/util/chart/defaultPropsMixin";
 
@@ -86,7 +85,7 @@ export default {
 
   computed: {
     options() {
-      const variablesColors = themeColors(this.$store.state.theme.skin);
+      // const variablesColors = themeColors(this.$store.state.theme.skin);
       const barMaxWidth = "30%";
       const barBorderRadius = [3, 3, 0, 0];
 
@@ -102,8 +101,6 @@ export default {
             type: "shadow",
             shadowStyle: {
               color: "#808080",
-              // color: variablesColors.variantsObj.secondary["mixed"],
-
               // shadowColor: "#ffffff",
               opacity: 0.25,
             },
@@ -179,9 +176,7 @@ export default {
             itemStyle: {
               barBorderRadius: barBorderRadius,
               normal: {
-                // color: "#0000aa",
-                color: variablesColors.variantsObj.secondary["mixed"],
-
+                color: "#0000aa",
                 backgroundColor: "#ff0000",
                 label: {
                   show: true,
@@ -202,9 +197,7 @@ export default {
             itemStyle: {
               barBorderRadius: barBorderRadius,
               normal: {
-                // color: "#00aa44",
-                // color: variablesColors.variantsObj.theme1.mixed,
-                color: variablesColors.variantsObj.primary["base"],
+                color: "#00aa44",
                 label: {
                   show: true,
                   position: "top",

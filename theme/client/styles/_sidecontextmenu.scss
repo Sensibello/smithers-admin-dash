@@ -1,11 +1,10 @@
 .ig-context-sidebar {
-  flex: 0 0 $theme-context-width;
-  //  min-width: $theme-context-width;
-  //width: $theme-context-width;
+  // flex: 0 0 $theme-context-width;
+  flex: 0 0 240px;
   margin-right: 5px;
   height: 100%; //calc(100vh - 40px - #{$theme-header-height});
-  background-color: var(--theme1inv);
-  border-radius: $theme-border-radius;
+  // background-color: var(--theme1inv);
+  // border-radius: $theme-border-radius;
   padding: 1rem;
 }
 

@@ -7,7 +7,7 @@
 }
 
 .btn-white {
-  background-color: $theme1inv;
+  // background-color: $theme1inv;
   //box-shadow: $themeShadow1;
   color: $primary;
   border-color: transparent;
@@ -41,7 +41,7 @@
     &:hover {
       background-color: mix(
         nth($color, 2),
-        $theme1inv,
+        $primary,
         $theme-color-mixed-percent
       ) !important; //lighten(nth($color, 2), 55%);
     }
@@ -59,7 +59,7 @@
     } @else {
       background-color: mix(
         nth($color, 2),
-        $theme1inv,
+        $primary,
         $theme-color-mixed-percent
       ) !important; //lighten(nth($color, 2), 55%);
 

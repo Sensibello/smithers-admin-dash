@@ -90,9 +90,9 @@ export default {
 
 <style lang="scss">
 @import "~@@/client/styles/frontend/styles.scss";
-@import "~@@/client/styles/skin/green.scss";
-@import "~@@/client/styles/skin/blue.scss";
-@import "~@@/client/styles/skin/color-carbon.scss";
+// @import "~@@/client/styles/skin/green.scss";
+// @import "~@@/client/styles/skin/blue.scss";
+// @import "~@@/client/styles/skin/color-carbon.scss";
 
 // @import "~@@/client/styles/skin/grey.scss";
 // @import "~@@/client/styles/skin/material.scss";
