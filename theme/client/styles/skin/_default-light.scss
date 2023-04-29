@@ -23,9 +23,6 @@
   @import "../_sidemenu.scss";
   @import "../_header.scss";
   @import "../_text.scss";
-  @import "../_root.scss";
-
-  @include generate-root-colors();
 
   .card:not(.no-bg) {
     opacity: $theme-card-opacity;
