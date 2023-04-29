@@ -38,8 +38,8 @@ function strVariantToMap(strVariants) {
 }
 
 export default (skinName) => {
-  let variablesColors = skinDefault;
-  if (skinName === "color-custom") variablesColors = skinColorCustom;
+  let variablesColors = skinColorCustom;
+  // if (skinName === "color-custom") variablesColors = skinColorCustom;
 
   variablesColors.variantsObj = strVariantToMap(variablesColors.variants);
 

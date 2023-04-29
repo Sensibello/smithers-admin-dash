@@ -24,8 +24,7 @@
       "breadcrumbHide": false,
       "headerBg": "#202020",
       "menuCompacted": false,
-      "menuMinimized": false,
-      "skin": "color-custom"
+      "menuMinimized": false
     },
     "demo2": {
       "headerBoxed": true,
@@ -33,8 +32,7 @@
       "headerBgOnScroll": false,
       "contentBoxed": true,
       "menuMinimized": true,
-      "menuIconIndex": 0,
-      "skin": "blue"
+      "menuIconIndex": 0
     },
     "demo3": {
       "menuCompacted": false,
@@ -42,7 +40,6 @@
       "headerBoxed": true,
       "headerBgOnScroll": true,
       "menuMinimized": true,
-      "skin": "green",
       "menuLogoBg": "#FFF"
     },
     "demo4": {
@@ -50,7 +47,6 @@
       "menuCompacted": false,
       "headerBoxed": true,
       "contentBoxed": true,
-      "skin": "color-carbon",
       "menuIconIndex": 0
     },
     "demo5": {
@@ -58,8 +54,7 @@
       "contentBoxed": true,
       "menuHide": false,
       "menuMinimized": true,
-      "menuContinuous": true,
-      "skin": "green"
+      "menuContinuous": true
     },
     "demo6": {
       "menuMinimized": true,
@@ -69,8 +64,7 @@
       "headerIconLighten": false,
       "headerBoxed": true,
       "breadcrumbHide": false,
-      "contentBoxed": true,
-      "skin": "green"
+      "contentBoxed": true
     },
     "demo7": {
       "headerBoxed": false,
@@ -80,8 +74,7 @@
       "menuContinuous": true,
       "menuCompacted": false,
       "menuMinimized": false,
-      "headerBg": "#fff",
-      "skin": "green"
+      "headerBg": "#fff"
     },
     "demo8": {
       "headerBoxed": true,
@@ -90,22 +83,19 @@
       "menuHide": true,
       "menuContinuous": false,
       "menuMinimized": false,
-      "headerExtended": true,
-      "skin": "green"
+      "headerExtended": true
     },
     "demo9": {
       "menuLogoBg": "#868585",
       "headerBoxed": true,
       "contentBoxed": true,
-      "menuMinimized": true,
-      "skin": "green"
+      "menuMinimized": true
     },
     "demo10": {
       "breadcrumbHide": false,
       "menuCompacted": false,
       "menuMinimized": true,
       "headerBg": "linear-gradient(90deg, #FC466B 0%, #3F5EFB 100%)",
-      "skin": "green",
       "headerBoxed": true,
       "contentBoxed": true
     }
